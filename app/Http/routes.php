@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	$page = 'advertise';
+    return view($page, array('page'=>$page));
 });
 
 /*

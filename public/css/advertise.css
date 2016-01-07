@@ -1,0 +1,19 @@
+
+		.content{
+			width: 45%;
+			
+			margin: 100px auto;
+			padding-top: 16px;
+    		border-top: 1px solid #f15a63;
+		}
+		.margin{
+			margin-top: 20px; 
+		}
+
+		.line{
+				border-collapse: collapse;
+			    border-bottom: 1px solid #D3D3D3;
+		}
+		td{
+			padding: 20px;
+		}
