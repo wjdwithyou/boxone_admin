@@ -130,7 +130,7 @@ function adModify2(idx)
  * 날짜: 2016-01-07
  */  
 
-
+/*
 $(document).ready(function(){
 		$.fn.setPreview = function(opt){
 		    "use strict";
@@ -199,15 +199,16 @@ $(document).ready(function(){
 		    $('#input_file').setPreview(opt);
 		});
 });
+*/
 
 var chkWrite = true;
 
 function adUpdate(idx){
-	/*
-	 * depend on advertise_modify.php
-	 */
-	var name = $("#name").val;
-	var link = $("#link").val;
+	var adr_ctr = $("#adr_ctr").val();
+	
+	var name = $("#adm_name").val();
+	var link = $("#adm_link").val();
+	var comment = $("#adm_comment").val();
 	//var comment = idx["comment"].value;
 	
 	if(name==""){
@@ -221,7 +222,7 @@ function adUpdate(idx){
 		alert("Please write the comment");
 	}
 	*/
-	else
+	else{
 		$.ajax
 		({
 			url: adr_ctr + "Advertise/update",
@@ -229,15 +230,17 @@ function adUpdate(idx){
 			async: false,
 			timeout: 10000,
 			data:{
-				/*
-				 * depend on advertise_modify.php
-				 */
+				idx: idx,
+				name: name,
+				link: link,
+				comment: comment
 			},
 			success: function(result){
+				//alert (JSON.stringify(result));
 				result = JSON.parse(result);
 				
 				if (result.code == 1){
-					var adr_ctr = $("adr_ctr").val();
+					var adr_ctr = $("#adr_ctr").val();
 					alert("수정되었습니다.");
 					chkWrite = false;
 					location.href = adr_ctr + "Advertise/index";
@@ -245,11 +248,12 @@ function adUpdate(idx){
 				else
 					alert("잘못된 접근입니다.");
 			},
-			error: function(result, status, error){
+			error: function(request, status, error){
 				console.log(request.responseText);
 				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 			}
 		});
+	}
 }
 
 

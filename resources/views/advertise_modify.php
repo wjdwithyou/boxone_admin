@@ -21,11 +21,11 @@
     	<table align="center">
 		  <tr>
 		    <td width="90" class="color">Name</td>
-		    <td><input type="text" class="text" name="name" value="<?= $info->name?>"></td>
+		    <td><input type="text" class="text" id="adm_name" name="name" value="<?= $info->name?>"></td>
 		  </tr>
 		  <tr>
 		    <td class="color">Link</td>
-		    <td><input type="text" class="text" name="link" value="<?= $info->website_link?>"></td>
+		    <td><input type="text" class="text" id="adm_link" name="link" value="<?= $info->website_link?>"></td>
 		  </tr>
 		  <tr>
 		    <td rowspan="2" class="color">Image</td>
@@ -38,7 +38,7 @@
 		    <td colspan="2" width="500" class="color">Comment</td>
 		  </tr>
 		  <tr>
-		    <td colspan="2"><textarea name="comment"><?= $info->alt?></textarea></td>
+		    <td colspan="2"><textarea id="adm_comment" name="comment"><?= $info->alt?></textarea></td>
 		  </tr>
 		  <tr>
 		    <td colspan="2" align="center">

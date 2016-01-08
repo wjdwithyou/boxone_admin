@@ -3,7 +3,6 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\models\AdvertiseModel;
 use Request;
-//use Request;
 
 class AdvertiseController extends Controller{
 	public function index(){
@@ -42,7 +41,7 @@ class AdvertiseController extends Controller{
 		$website_link = Request::input('link');
 		//$image = Request::input('image');
 		$alt = Request::input('comment');
-		
+		$image = "coming soon..";
 		
 		
 		
