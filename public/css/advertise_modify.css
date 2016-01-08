@@ -10,40 +10,41 @@
               
             }
 			.text {
-				width:395px;
+				width:650px;
 			}
 			textarea{
-				width: 495px;
+				width: 840px;
 				height:300px;
 			}
 			table, th, td {
 				padding:5px;
 				border-collapse: collapse;
-			    border-top: 1px solid #F15A63;
+			    border-top: 1px solid black;
 			    
 			    background: #fff;
 			    text-indent: 0.01px;
 			}
 			.color{
-				background: #FFF0F5;
-				padding-left : 10px;
+				background: #E1E1E1;
+				padding-left : 15px;
 			}
 button {
 	    cursor: pointer;
 }
 .bo_btn {
+	margin-top: 15px;
     width: 80px;
-    color: #f15a63;
+    color: black;
     background-color: #fff;
-    border: 1px solid #f15a63;
+    border: 1px solid black;
     padding-top: 7px;
     padding-bottom: 7px;
     border-radius: 25px !important;
 }
 .bo_btn:hover, .boxone_btn:active {
     color: #fff;
-    background-color: #f15a63;
-    border-color: #f15a63;
+    background-color: #E1E1E1;
+    border-color: #E1E1E1;
 }
 #btn_left {
     border-top-right-radius: 0 !important;

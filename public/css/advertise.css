@@ -1,4 +1,10 @@
-
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
 		.content{
 			width: 45%;
 			
@@ -17,3 +23,26 @@
 		td{
 			padding: 20px;
 		}
+.ad_board_title {
+    padding-top: 16px;
+    padding-bottom: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+#ad_board_wrap {
+	width: 45%;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-top: none;
+}
+.ad_pc {
+    padding-top: 16px;
+    padding-bottom: 8px;
+    font-size: 12px;
+    width: 80px;
+    text-align: center;
+}
+.ad_board {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+}
