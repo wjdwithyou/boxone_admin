@@ -38,7 +38,6 @@
                </table>
         	<?php endforeach;?>
     </div>
-   onclick='location.href = "<?=$adr_ctr?>Community/indexWrite?idx=<?=$result->idx?>";'
     
     
 

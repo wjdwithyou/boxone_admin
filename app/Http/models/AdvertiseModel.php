@@ -29,17 +29,16 @@ class AdvertiseModel{
 	}
 	*/
 	
-	function update(/*$idx, */$id, $name, $image, $website_link, $alt){
-		if (!(/*inputErrorCheck($idx, 'idx')
-			&&*/ inputErrorCheck($id, 'id')
+	function update($idx, $name, $website_link, $image, $alt){
+		if (!(inputErrorCheck($idx, 'idx')
 			&& inputErrorCheck($name, 'name')
-			&& inputErrorCheck($image, 'image')
 			&& inputErrorCheck($website_link, 'website_link')
+			&& inputErrorCheck($image, 'image')
 			&& inputErrorCheck($alt, 'alt')))
 			return;
 		
-		$result = DB::update('update advertise set name=?, image=?, website_link=?, alt=?, upload=now() where id=?',
-			array($name, $image, $website_link, $alt, $id));
+		$result = DB::update('update advertise set name=?, website_link=?, image=?, alt=?, upload=now() where idx=?',
+			array($name, $website_link, $image, $alt, $idx));
 		
 		if ($result == true)
 			return array('code' => 1, 'msg' => 'update success', 'data' => $result);
