@@ -54,7 +54,7 @@ class AdvertiseModel{
 	*/
 	
 	function getAdvertiseAll(){
-		$result = DB::select('select idx, id, name, image from advertise');
+		$result = DB::select('select idx, id, name, image, upload from advertise');
 		
 		return array('code' => 1, 'msg' => 'success', 'data' => $result);
 	}
