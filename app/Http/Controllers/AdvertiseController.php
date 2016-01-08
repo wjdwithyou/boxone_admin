@@ -32,13 +32,32 @@ class AdvertiseController extends Controller{
 						'idx' => $ad_idx));
 	}
 	
-	
-	/*
-	// coming soon
 	public function update(){
 		$adModel = new AdvertiseModel();
 		
+		$idx = Request::input('idx');
 		
+		// temp
+		$name = Request::input('name');
+		$website_link = Request::input('link');
+		//$image = Request::input('image');
+		$alt = Request::input('comment');
+		
+		
+		
+		
+		
+		
+		// session
+		
+		
+		
+		
+		
+		
+		$result = $adModel->update($idx, $name, $website_link, $image, $alt);
+		
+		header('Content-Type: application/json');
+		echo json_encode($result);
 	}
-	*/
 }
