@@ -21,7 +21,7 @@
     	<table align="center">
 		  <tr>
 		    <td width="90" class="color">Name</td>
-		    <td><input type="text" class="text" name="name" value="<?= $info->name?>"></td>
+		    <td><input type="text" class="text" id="" name="name" value="<?= $info->name?>"></td>
 		  </tr>
 		  <tr>
 		    <td class="color">Link</td>

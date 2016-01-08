@@ -22,6 +22,7 @@
 		  	<td class="ad_pc">Location</td>
 		    <td width="498" align="left">Name</td>
 		    <td width="150">Image</td>
+		    <td width="150">Upload time</td>
 		  </tr>
 		</table>
 		
@@ -33,6 +34,7 @@
                      <td class="ad_pc"><?= $i->id?></td>
                      <td class="ad_board_title"><a onclick='adModify(<?=$i->idx?>);'><?= $i->name?></a></td>
                      <td class="ad_pc"><?= $i->image?></td>
+                     <td class="ad_pc"><?= $i->upload?></td>
                   </tr>
                   <!-- /광고목록 글 -->
                </table>
