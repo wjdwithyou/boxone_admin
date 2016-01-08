@@ -21,47 +21,22 @@
 		    <td width="200">Image</td>
 		  </tr>
 		</table>
-    <div style="margin-top: 3px;" class="content">
-    	<table>  
-		  <tr align="center" >
-		  	<td width="100" class="line">No.</td>
-		  	<td width="200" class="line">Location</td>
-		    <td width="500" align="left" class="line">Name</td>
-		    <td width="200" class="line">Image</td>
-		  </tr>     
-		  <tr align="center">
-		  	<td width="100" class="line">No.</td>
-		  	<td width="200" class="line">Location</td>
-		    <td width="500" align="left" class="line">Name</td>
-		    <td width="200" class="line">Image</td>
-		  </tr>
-		  <tr align="center">
-		  	<td width="100" class="line">No.</td>
-		  	<td width="200" class="line">Location</td>
-		    <td width="500" align="left" class="line">Name</td>
-		    <td width="200" class="line">Image</td>
-		  </tr>
-		  <tr align="center">
-		  	<td width="100" class="line">No.</td>
-		  	<td width="200" class="line">Location</td>
-		    <td width="500" align="left" class="line">Name</td>
-		    <td width="200" class="line">Image</td>
-		  </tr>
-		  <tr align="center">
-		  	<td width="100" class="line">No.</td>
-		  	<td width="200" class="line">Location</td>
-		    <td width="500" align="left" class="line">Name</td>
-		    <td width="200" class="line">Image</td>
-		  </tr>
-		  <tr align="center">
-		  	<td width="100" class="line">No.</td>
-		  	<td width="200" class="line">Location</td>
-		    <td width="500" align="left" class="line">Name</td>
-		    <td width="200" class="line">Image</td>
-		  </tr>
-    	</table>
-    	
-    </div>
+		
+     <?php foreach($adList as $i) :?>
+            <div id="ad_board_wrap" class="cl_b content">
+               <table class="ad_board">
+                  <!-- 광고목록 글 -->
+                  <tr>
+                     <td class="ad_pc"><?= $i->idx?></td>
+                     <td class="ad_pc"><?= $i->id?></td>
+                     <td class="ad_board_title"><a onclick="commContent(<?= $i->idx?>);"><?= $i->name?></a></td>
+                     <td class="ad_pc"><?= $i->image?></td>
+                  </tr>
+                  <!-- /광고목록 글 -->
+               </table>
+            </div>
+   <?php endforeach;?>
+   
     
     
 

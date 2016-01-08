@@ -5,15 +5,17 @@ use App\Http\models\AdvertiseModel;
 //use Request;
 
 class AdvertiseController extends Controller{
-	
 	public function index(){
 		$adModel = new AdvertiseModel();
 		
-		$list = $adModel->getAdvertiseAll();
+		$adList = $adModel->getAdvertiseAll();
 		// cnt?
 		
+		// use in php
+		// $adList[n]->idx, id...
+		
 		$page = 'advertise';
-		return view($page, array('page' => $page, 'list' => $list['data']));
+		return view($page, array('page' => $page, 'adList' => $adList['data']));
 	}
 	
 	

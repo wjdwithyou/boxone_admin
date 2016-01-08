@@ -11,10 +11,14 @@
 |
 */
 
+/*
 Route::get('/', function () {
 	$page = 'advertise';
     return view($page, array('page'=>$page));
 });
+*/
+
+Route::get('/', 'AdvertiseController@index');
 
 /*
 |--------------------------------------------------------------------------

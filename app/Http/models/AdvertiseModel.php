@@ -57,12 +57,12 @@ class AdvertiseModel{
 	function getAdvertiseAll(){
 		$result = DB::select('select idx, id, name, image from advertise');
 		
-		return array('code' => 1, msg => 'success', 'data' => $result);
+		return array('code' => 1, 'msg' => 'success', 'data' => $result);
 	}
 	
 	function getAdvertiseByIdx($idx){
 		$result = DB::select('select id, image, website_link, name, alt from advertise where idx=?', array($idx));
 		
-		return array('code' => 1, msg => 'success', 'data' => $result);
+		return array('code' => 1, 'msg' => 'success', 'data' => $result);
 	}
 }

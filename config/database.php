@@ -51,7 +51,24 @@ return [
             'database' => database_path('database.sqlite'),
             'prefix'   => '',
         ],
+        
+        'mysql' => [
+        	'read' => [
+        		'host'	=> 'boxone.c2byxfiradkw.ap-northeast-1.rds.amazonaws.com',
+        	],
+        	'write' => [
+        		'host'	=> 'boxone.c2byxfiradkw.ap-northeast-1.rds.amazonaws.com'
+        	],
+        	'driver'	=> 'mysql',
+        	'database'	=> 'boxone',
+        	'username'	=> 'boxone',
+        	'password'	=> '1q2w3e!!',
+        	'charset'	=> 'utf8',
+        	'collation'	=> 'utf8_general_ci',
+        	'prefix'	=> '',
+        ],
 
+        /*
         'mysql' => [
             'driver'    => 'mysql',
             'host'      => env('DB_HOST', 'localhost'),
@@ -63,6 +80,7 @@ return [
             'prefix'    => '',
             'strict'    => false,
         ],
+        */
 
         'pgsql' => [
             'driver'   => 'pgsql',
@@ -116,11 +134,18 @@ return [
         'cluster' => false,
 
         'default' => [
+        	'host'		=> '127.0.0.1',
+        	'port'		=> 6379,
+        	'database'	=> 0,
+        ],
+        /*
+        'default' => [
             'host'     => env('REDIS_HOST', 'localhost'),
             'password' => env('REDIS_PASSWORD', null),
             'port'     => env('REDIS_PORT', 6379),
             'database' => 0,
         ],
+        */
 
     ],
 

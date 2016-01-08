@@ -4,6 +4,7 @@
  * 날짜: 2016-01-07
  */
 
+/*
 
 // 수정이므로 기존 내용을 불러온다.
 
@@ -120,12 +121,16 @@ function adModify2(idx)
 	
 }
 
+*/
+
 
 /*
  * 업로드 이미지 미리보기
  * 작성자: 박예리
  * 날짜: 2016-01-07
  */  
+
+/*
 $(document).ready(function(){
 		$.fn.setPreview = function(opt){
 		    "use strict";
@@ -194,3 +199,47 @@ $(document).ready(function(){
 		    $('#input_file').setPreview(opt);
 		});
 });
+*/
+
+var chkWrite = true;
+
+function adUpdate(idx){
+	/*
+	 * depend on advertise_modify.php
+	 */
+	
+	if (false);
+	else if (false);
+	else
+		$.ajax
+		({
+			url: adr_ctr + "Advertise/update",
+			type: 'post',
+			async: false,
+			timeout: 10000,
+			data:{
+				/*
+				 * depend on advertise_modify.php
+				 */
+			},
+			success: function(result){
+				result = JSON.parse(result);
+				
+				if (result.code == 1){
+					var adr_ctr = $("adr_ctr").val();
+					alert("수정되었습니다.");
+					chkWrite = false;
+					location.href = adr_ctr + "Advertise/index";
+				}
+				else
+					alert("잘못된 접근입니다.");
+			},
+			error: function(result, status, error){
+				console.log(request.responseText);
+				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			}
+		});
+}
+
+
+
