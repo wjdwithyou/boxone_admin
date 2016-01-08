@@ -31,7 +31,7 @@
                   <tr>
                      <td class="ad_num"><?= $i->idx?></td>
                      <td class="ad_pc"><?= $i->id?></td>
-                     <td class="ad_board_title"><a onclick="location.href = localhost:8000/commContent(<?= $i->idx?>);"><?= $i->name?></a></td>
+                     <td class="ad_board_title"><a onclick='adModify(<?=$i->idx?>);'><?= $i->name?></a></td>
                      <td class="ad_pc"><?= $i->image?></td>
                   </tr>
                   <!-- /광고목록 글 -->

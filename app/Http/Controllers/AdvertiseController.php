@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\models\AdvertiseModel;
+use Request;
 //use Request;
 
 class AdvertiseController extends Controller{
@@ -9,7 +10,6 @@ class AdvertiseController extends Controller{
 		$adModel = new AdvertiseModel();
 		
 		$adList = $adModel->getAdvertiseAll();
-		// cnt?
 		
 		// use in php
 		// $adList[n]->idx, id...
