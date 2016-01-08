@@ -45,7 +45,7 @@
 		    	<button type="button" id="btn_left" class="bo_btn" onclick="history.go(-1);" value="1">
 					Back
 				</button>
-		    	<button type="button" id="btn_right" class="bo_btn" onclick="adModify(this.form);">
+		    	<button type="button" id="btn_right" class="bo_btn" onclick="adUpdate(<?=$idx?>);">
 					Modify
 				</button>
 		    </td>
