@@ -38,7 +38,6 @@
                </table>
         	<?php endforeach;?>
     </div>
-    
-    
+
 
 </body>

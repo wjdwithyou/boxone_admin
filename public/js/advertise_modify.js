@@ -4,10 +4,9 @@
  * 날짜: 2016-01-07
  */
 
-/*
 
 // 수정이므로 기존 내용을 불러온다.
-
+/*
 $(document).ready(function() {
 	if ($("#comm_idx").length > 0)
 	{
@@ -73,6 +72,7 @@ function adModify(theForm){
 	
 	
 }
+/*
 function adModify2(idx)
 {
 	var name = $("#ad_name").val();
@@ -130,7 +130,7 @@ function adModify2(idx)
  * 날짜: 2016-01-07
  */  
 
-/*
+
 $(document).ready(function(){
 		$.fn.setPreview = function(opt){
 		    "use strict";
@@ -199,7 +199,6 @@ $(document).ready(function(){
 		    $('#input_file').setPreview(opt);
 		});
 });
-*/
 
 var chkWrite = true;
 
@@ -207,9 +206,21 @@ function adUpdate(idx){
 	/*
 	 * depend on advertise_modify.php
 	 */
+	var name = $("#name").val;
+	var link = $("#link").val;
+	//var comment = idx["comment"].value;
 	
-	if (false);
-	else if (false);
+	if(name==""){
+		alert("Please enter the name");
+	}
+	else if(link==""){
+		alert("Please enter the link");	
+	}
+	/*
+	else if(comment==""){
+		alert("Please write the comment");
+	}
+	*/
 	else
 		$.ajax
 		({
