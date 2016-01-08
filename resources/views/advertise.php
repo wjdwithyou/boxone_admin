@@ -13,30 +13,32 @@
 <body>    
     <br>
     <h1 align="center">Contents</h1>
-       	<table class="title" width="45%" align="center">
+    
+	<div id="ad_board_wrap" class="cl_b content">
+
+       	<table class="title" align="center">
 		  <tr align="center">
-		  	<td width="100" >No.</td>
-		  	<td width="200">Location</td>
-		    <td width="500" align="left">Name</td>
-		    <td width="200">Image</td>
+		  	<td class="ad_num">No.</td>
+		  	<td class="ad_pc">Location</td>
+		    <td width="498" align="left">Name</td>
+		    <td width="150">Image</td>
 		  </tr>
 		</table>
 		
-     <?php foreach($adList as $i) :?>
-            <div id="ad_board_wrap" class="cl_b content">
+     		<?php foreach($adList as $i) :?>            
                <table class="ad_board">
                   <!-- 광고목록 글 -->
                   <tr>
-                     <td class="ad_pc"><?= $i->idx?></td>
+                     <td class="ad_num"><?= $i->idx?></td>
                      <td class="ad_pc"><?= $i->id?></td>
-                     <td class="ad_board_title"><a onclick="commContent(<?= $i->idx?>);"><?= $i->name?></a></td>
+                     <td class="ad_board_title"><a onclick="location.href = localhost:8000/commContent(<?= $i->idx?>);"><?= $i->name?></a></td>
                      <td class="ad_pc"><?= $i->image?></td>
                   </tr>
                   <!-- /광고목록 글 -->
                </table>
-            </div>
-   <?php endforeach;?>
-   
+        	<?php endforeach;?>
+    </div>
+   onclick='location.href = "<?=$adr_ctr?>Community/indexWrite?idx=<?=$result->idx?>";'
     
     
 

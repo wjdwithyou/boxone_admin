@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::get('/', 'AdvertiseController@index');
 
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
