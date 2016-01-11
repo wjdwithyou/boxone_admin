@@ -5,7 +5,7 @@ body {
     color: #333;
     background-color: #fff;
 }
-		.content{
+.content{
 			/* width: 45%; */
 			
 			margin: 100px auto;
@@ -43,6 +43,11 @@ body {
     padding-top: 30px;
     padding-bottom: 30px;
     font-size: 12px;
+    width: 150px;
+    text-align: center;
+}
+.ad_img {
+
     width: 150px;
     text-align: center;
 }
