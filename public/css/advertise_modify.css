@@ -9,50 +9,67 @@
                 
               
             }
-			.text {
-				width:650px;
-			}
-			textarea{
-				width: 840px;
-				height:300px;
+			table{
+				width:100%;
 			}
 			table, th, td {
+				
 				padding:5px;
 				border-collapse: collapse;
-			    border-top: 1px solid black;
+			    border-top: 1px solid #E1E1E1;
 			    
 			    background: #fff;
 			    text-indent: 0.01px;
 			}
 			.color{
-				background: #E1E1E1;
-				padding-left : 15px;
+				background: #fff;
+				padding-left: 15px;
+				padding-top: 15px;
+				padding-bottom: 15px;
+				vertical-align: top;
+				width: 230px;
+				/* font-weight: bold; */
+				
 			}
-button {
-	    cursor: pointer;
-}
-.bo_btn {
-	margin-top: 15px;
-    width: 80px;
-    color: black;
-    background-color: #fff;
-    border: 1px solid black;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    border-radius: 25px !important;
-}
-.bo_btn:hover, .boxone_btn:active {
-    color: #fff;
-    background-color: #E1E1E1;
-    border-color: #E1E1E1;
-}
-#btn_left {
-    border-top-right-radius: 0 !important;
-    border-bottom-right-radius: 0 !important;
-    border-right: 0;
-}
-#btn_right {
-	border-top-left-radius: 0 !important;
-    border-bottom-left-radius: 0 !important;
-    margin-left: -4px;
-}
+			.img_pre{
+				padding: 10px 0px 10px 0px;
+			}
+			button {
+				    cursor: pointer;
+			}
+			.bo_btn {
+				margin-top: 15px;
+			    width: 80px;
+			    color: black;
+			    background-color: #fff;
+			    border: 1px solid black;
+			    padding-top: 7px;
+			    padding-bottom: 7px;
+			    border-radius: 25px !important;
+			}
+			.bo_btn:hover, .boxone_btn:active {
+			    color: #fff;
+			    background-color: #E1E1E1;
+			    border-color: #E1E1E1;
+			}
+			#btn_left {
+			    border-top-right-radius: 0 !important;
+			    border-bottom-right-radius: 0 !important;
+			    border-right: 0;
+			}
+			#btn_right {
+				border-top-left-radius: 0 !important;
+			    border-bottom-left-radius: 0 !important;
+			    margin-left: -4px;
+			}
+			#content{
+				max-width: 1025px;
+				width: 1025px;
+				margin: 0 auto;	
+				padding-top: 50px;			
+			}
+			#adm_comment{
+				margin-top: 10px;
+				margin-bottom: 10px;
+			}
+			
