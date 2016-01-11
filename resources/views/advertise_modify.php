@@ -7,7 +7,26 @@
         <title>Laravel</title>
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
     </head>
-  
+  <script>
+		$(document).ready(function(){
+		       $("#input_file").change(function(){
+		           readURL(this);
+		       });
+		   })
+		   
+		   function readURL(input) {
+		      if (input.files && input.files[0]) {
+		      var reader = new FileReader();
+		      
+		      reader.onload = function (e) {
+		         $('#input_img').attr('src', e.target.result);
+		      }
+		              
+		      reader.readAsDataURL(input.files[0]);
+		      }
+		   }
+		 
+  </script>
     <body>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -33,11 +52,11 @@
 		  </tr>
 		  <tr>
 		    <td rowspan="2" class="color">Image</td>
-		    <td><input class="img_pre" type="file" name="img" id="input_file"></td>
+		    <td><input class="img_pre" id="input_file" type="file" name="img"></td>
 		  </tr>
 		  <tr>
 
-		    <td height="170"><img id="img_preview" name="pre_img" style="display:none;"/><img src="<?=$adr_img?>advertise/<?=$idx?>_img.png"/></td>
+		    <td height="170"><img height="150" id="input_img" class="img-thumbnail" src="<?=$adr_img?>advertise/<?=$idx?>_img.png"/></td>
 
 		  </tr>
 		  <tr>
