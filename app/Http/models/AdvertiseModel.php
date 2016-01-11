@@ -38,8 +38,15 @@ class AdvertiseModel{
 			&& inputErrorCheck($alt, 'alt')))
 			return;
 		
+		/*
 		$ext = $image->getClientOriginalExtension();	// 파일 확장자 얻어오기
 		$img_name = $idx."_img.".$ext;	// 저장될 파일명
+		*/
+
+		// 임시방편
+		$img_name = $idx."_img."."png";	// 전부 png로 바꿔서 저장!
+										// gif같은거 처리하려면 결국 바꾸긴 해야한다..
+		
 		$img_adr = "https://s3-ap-northeast-1.amazonaws.com/boxone-image/advertise/".$img_name;	// 저장될 주소
 		
 		$result = DB::update('update advertise set name=?, website_link=?, image=?, alt=?, upload=now() where idx=?',
