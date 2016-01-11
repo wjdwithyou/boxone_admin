@@ -8,6 +8,7 @@ use DB;
 class MemberModel{
 	function login($id, $pw){
 		// 일단은 hash 안쓴다..
+		// PW 평문전송하니 주의!!
 		$target_member = DB::select('select * from admin where id=? and pw=?', array($id, $pw));
 		
 		if (count($target_member) > 0)

@@ -3,7 +3,7 @@ function justLogin(){
 	
 	var id = $("#login_id").val();
 	var pw = $("#login_pw").val();
-	
+	alert("asdF");
 	$.ajax({
 		url: adr_ctr + 'Login/login',
 		type: 'post',
