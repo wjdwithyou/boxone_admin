@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 	<head>
+		<?php 
+			include ("libraries.php");
+		?>
 		<title>Admin Page Login</title>
 	</head>
 	<body>

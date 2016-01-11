@@ -13,11 +13,14 @@ function justLogin(){
 			pw: pw
 		},
 		success: function(result){
+			alert (JSON.stringify(result));
 			result = JSON.parse(result);
 			
+			alert(result.code);
+			
 			if (result.code == 1){
-				alert("Admin Page Login");
-				//href = ...
+				alert("로그인되었습니다.");
+				location.href = adr_ctr + "Advertise/index";
 			}
 			else
 				alert("잘못된 정보를 입력하셨습니다.");

@@ -26,22 +26,23 @@
 	$adr_ctr = "http://localhost:8000/";
 ?>
 
-
-
-
-
-
-<!-- login session -->
-
-
-
-
-
-
 <input type="hidden" id="adr_js" value="<?=$adr_js?>"/>
 <input type="hidden" id="adr_css" value="<?=$adr_css?>"/>
 <input type="hidden" id="adr_img" value="<?=$adr_img?>"/>
 <input type="hidden" id="adr_ctr" value="<?=$adr_ctr?>"/>
+
+<?php
+	if (session_id() == '')
+		session_start();
+	
+	$logined = !empty($_SESSION['idx']);
+?>
+
+<?php if ($logined) :?>
+	<input type="hidden" id="logined" value="1"/>
+<?php else :?>
+	<input type="hidden" id="logined" value="0"/>
+<?php endif;?>
 
 <link rel="stylesheet" href="<?=$adr_btstrp?>css/bootstrap.css"/>
 <link rel="stylesheet" href="<?=$adr_btstrp?>css/bootstrap-theme.css"/>
@@ -66,14 +67,13 @@
 
 
 
-<!-- login js -->
+<!-- social login js -->
 
 
 
 
 
 
-<!-- page 관련 css, js -->
 <link rel="stylesheet" href="<?=$adr_css?><?=$page?>.css">
 <script type="text/javascript" src="<?=$adr_js?><?=$page?>.js"></script>
 

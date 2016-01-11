@@ -288,7 +288,6 @@ function adUpdate(idx){
 				result = JSON.parse(result);
 				
 				if (result.code == 1){
-					var adr_ctr = $("#adr_ctr").val();
 					alert("수정되었습니다.");
 					chkWrite = false;
 					location.href = adr_ctr + "Advertise/index";
