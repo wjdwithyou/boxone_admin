@@ -56,7 +56,7 @@
 		  </tr>
 		  <tr>
 
-		    <td height="170"><img height="150" id="input_img" class="img-thumbnail" src="<?=$adr_img?>advertise/<?=$idx?>_img.png"/></td>
+		    <td height="170"><img width="200" height="150" id="input_img" class="img-thumbnail" src="<?=$adr_img?>advertise/<?=$idx?>_img.png"/></td>
 
 		  </tr>
 		  <tr>
