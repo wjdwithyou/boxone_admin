@@ -209,6 +209,11 @@ function adUpdate(idx){
 	var name = $("#adm_name").val();
 	var link = $("#adm_link").val();
 	var comment = $("#adm_comment").val();
+	
+	var img = $("#input_file");
+	
+	if (img[0].files && img[0].files[0])
+		var img1 = img[0].files[0]; // 임시
 	//var comment = idx["comment"].value;
 	
 	if(name==""){
@@ -223,18 +228,21 @@ function adUpdate(idx){
 	}
 	*/
 	else{
-		$.ajax
-		({
-			url: adr_ctr + "Advertise/update",
-			type: 'post',
-			async: false,
-			timeout: 10000,
-			data:{
-				idx: idx,
-				name: name,
-				link: link,
-				comment: comment
-			},
+		data = new FormData();
+		
+	    data.append("img", img1);
+	    data.append("idx", idx);
+	    data.append("name", name);
+	    data.append("link", link);
+	    data.append("comment", comment);
+	    
+	    $.ajax({
+	        data: data,
+	        type: "POST",
+	        url: adr_ctr + "Advertise/update",
+	        cache: false,
+	        contentType: false,
+	        processData: false,
 			success: function(result){
 				//alert (JSON.stringify(result));
 				result = JSON.parse(result);

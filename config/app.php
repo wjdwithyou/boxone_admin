@@ -159,7 +159,7 @@ return [
         /*
          * Aws S3 use
          */
-        //Aws\Laravel\AwsServiceProvider::class,
+        Aws\Laravel\AwsServiceProvider::class,
     ],
 
     /*
@@ -206,7 +206,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         
-        //'AWS'		=> Aws\Laravel\AwsFacade::class,
+        'AWS'		=> Aws\Laravel\AwsFacade::class,
     ],
 
 ];

@@ -41,7 +41,14 @@ class AdvertiseController extends Controller{
 		$website_link = Request::input('link');
 		//$image = Request::input('image');
 		$alt = Request::input('comment');
-		$image = "coming soon..";
+		
+		if (Request::hasFile('img'))
+			$image = Request::file('img');
+		else
+		{
+			echo ("error in AdvertiseController::update()");
+			return;
+		}
 		
 		
 		
