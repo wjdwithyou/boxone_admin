@@ -25,4 +25,13 @@ return [
 	'Ses' => [
 		'region' => 'ap-northeast-1',
 	],
+	
+	// test
+	'http' => [
+		'verify' => false,//'cacert.pem',
+	],
+	
+	'defaults' => [
+		'verify' => false,
+	],
 ];

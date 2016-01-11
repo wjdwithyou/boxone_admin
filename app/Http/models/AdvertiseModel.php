@@ -1,8 +1,9 @@
 <?php
 namespace App\Http\models;
 use DB;
+use AWS;
 
-include_once dirname(__FILE__)."/../function/baseFunction.php";
+include_once dirname(__FILE__)."/../method/baseFunction.php";
 
 class AdvertiseModel{
 	/*
@@ -37,8 +38,21 @@ class AdvertiseModel{
 			&& inputErrorCheck($alt, 'alt')))
 			return;
 		
+		$ext = $image->getClientOriginalExtension();	// 파일 확장자 얻어오기
+		$img_name = $idx."_img.".$ext;	// 저장될 파일명
+		$img_adr = "https://s3-ap-northeast-1.amazonaws.com/boxone-image/advertise/".$img_name;	// 저장될 주소
+		
 		$result = DB::update('update advertise set name=?, website_link=?, image=?, alt=?, upload=now() where idx=?',
-			array($name, $website_link, $image, $alt, $idx));
+			array($name, $website_link, $img_adr, $alt, $idx));
+		
+		$s3 = AWS::createClient('s3');
+		 
+		//$image_name = $document_idx.'_image'.$image_num.'.'.$ext;
+		$s3->putObject(array(
+			'Bucket' 	=> 'boxone-image',
+			'Key'		=> 'advertise/'.$img_name,
+			'SourceFile'	=> $image,
+		));
 		
 		if ($result == true)
 			return array('code' => 1, 'msg' => 'update success', 'data' => $result);

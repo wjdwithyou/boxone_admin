@@ -99,6 +99,34 @@
 	/*
 	 *	이미지 사진 등록 함수
 	 */
+    /*
+    function insertImg($target_idx, $document_idx, $image, $ext, $image_num){
+    	if(	!(inputErrorCheck($target_idx, 'target_idx')
+    		&&inputErrorCheck($document_idx, 'document_idx')
+    		&&inputErrorCheck($image, 'image')
+    		&&inputErrorCheck($image_num, 'image_num')))
+    		return;
+    	
+    	$s3 = App::make('aws')->createClient('s3');
+    	
+    	switch ($target_idx){
+    		case 'num':	// temp
+    			$image_name = $document_idx.'_image'.$image_num.'.'.$ext;
+    			$s3->putObject(array(
+    				'Bucket' 	=> 'boxone-image/advertise',
+    				'Key'		=> 'advertise/'.$image_name,
+    				'SourceFile'	=> $image,
+    			));
+    			break;
+    		default:
+    			break;
+    	}
+    	
+    	return array('code' => '200', 'data' => 'image upload success');
+    }
+    */
+    
+    /*
 	function insertImg($target_idx, $document_idx, $image, $ext, $image_num)
 	{
 		if( ! (inputErrorCheck($target_idx, 'target_idx')
@@ -166,7 +194,8 @@
 		return array('code' => '200', 'data' => 'image uplaod success');
 				
 	}
-	
+	*/
+    
 	/*
 	 * YYYY-MM-DD HH:MM:SS => YYYY-MM-DD
 	 */
@@ -243,13 +272,3 @@
 		else
 			return substr($date, 0, 10);
 	}
-	
-	
-
-	
-	
-	
-	
-	
-	
-
