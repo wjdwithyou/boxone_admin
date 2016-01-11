@@ -14,26 +14,34 @@
 	<div id="ad_board_wrap" class="cl_b content">
 
        	<table class="title" align="center">
+       	
+       		<!-- Temp Notice -->
+       		<tr align="center">
+       			<td colspan="5"><font color="#FF0000">PNG 파일만 넣어요 일단은ㅜㅜ</font></td>
+       		</tr>
+       		<!-- Temp Notice end -->
+       		
 		  <tr align="center">
-		  	<td class="ad_num">No.</td>
+		  	<td class="ad_num" width="50px">No.</td>
 		  	<td class="ad_pc">Location</td>
-		    <td width="498" align="left">Name</td>
-		    <td width="150">Image</td>
+		    <td class="ad_board_title" align="left">Name</td>
+		    <td class="ad_pc">Image</td>
+		    <td class="ad_pc" >Upload time</td>
 		  </tr>
-		</table>
-		
-     		<?php foreach($adList as $i) :?>            
-               <table class="ad_board">
+		  <?php foreach($adList as $i) :?>      
                   <!-- 광고목록 글 -->
                   <tr>
                      <td class="ad_num"><?= $i->idx?></td>
                      <td class="ad_pc"><?= $i->id?></td>
-                     <td class="ad_board_title"><a onclick='adModify(<?=$i->idx?>);'><?= $i->name?></a></td>
+                     <td class="ad_board_title" style="font-weight:bold" ><a onclick='adModify(<?=$i->idx?>);'><?= $i->name?></a></td>
                      <td class="ad_pc"><img src="<?=$adr_img ?>advertise/<?=$i->idx?>_img.png"/></td>
+                     <td class="ad_pc"><?= $i->upload?></td>
                   </tr>
                   <!-- /광고목록 글 -->
-               </table>
         	<?php endforeach;?>
+		</table>
+		
+     		
     </div>
 
 
