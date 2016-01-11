@@ -36,16 +36,13 @@ class AdvertiseController extends Controller{
 		
 		$idx = Request::input('idx');
 		
-		// temp
 		$name = Request::input('name');
 		$website_link = Request::input('link');
-		//$image = Request::input('image');
 		$alt = Request::input('comment');
 		
 		if (Request::hasFile('img'))
 			$image = Request::file('img');
-		else
-		{
+		else{
 			echo ("error in AdvertiseController::update()");
 			return;
 		}
