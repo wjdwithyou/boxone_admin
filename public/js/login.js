@@ -1,4 +1,6 @@
 function justLogin(){
+	location.href = adr_ctr + "Advertise/index";
+	/*
 	var adr_ctr = $("#adr_ctr").val();
 	
 	var id = $("#login_id").val();
@@ -30,4 +32,5 @@ function justLogin(){
 		    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 		}
 	});
+	*/
 }
