@@ -3,15 +3,7 @@
 	<?php 
 		include ("libraries.php");
 	?>
-	<style type="text/css">
-	
-	.content{
-		max-width: 400px;
-		width: 400px;
-		margin: 0 auto;
-		padding-top: 10%;
-	}
-	</style>
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script type="text/javascript" src="<?=$adr_js?>jquery.cookie.js"></script>
 		
@@ -86,12 +78,43 @@
 		});
 		
 		</script>
+	<style type="text/css">
+	
+	.content{
+		max-width: 400px;
+		width: 400px;
+		margin: 0 auto;
+		padding-top: 10%;
+	}
+	td, tr {
+		
+		padding: 5px !important;
+
+	}
+	.title{
+		width: 50px;
+		text-align: center;
+		vertical-align: middle;
+
+	}
+	.btn{
+		height: 100% !important;
+	}
+	.tabl_btn{
+		padding: 0px 0px 0px 5px !important;
+		
+	}
+	label{
+		margin-bottom: 0px !important;
+	}
+	</style>
 </head>
 
 <body>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
+<<<<<<< HEAD
 
 <div class="content">
 <form id="theForm" class="form-horizontal" >
@@ -129,3 +152,54 @@
 </div>
 
 </body>
+=======
+	<div class="content">
+	<form id="theForm" class="form-horizontal" >
+		<table>
+			<tr>
+				<td class="title"><label for="id" class="control-label" >ID</label></td>
+				<td> <input type="text" class="form-control" id="id" name="id" placeholder="ID"></td>
+				<td rowspan="2" class="tabl_btn"><button type="submit" class="btn btn-default">Log in</button></td>
+			</tr>
+			<tr>
+				<td class="title"><label for="inputPassword3" class="control-label">Password</label></td>
+				<td><input type="password" class="form-control" id="inputPassword3" name="passwd" placeholder="Password"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td rowspan="2"> <input type="checkbox" id="idSaveCheck">  Remember me </td>
+			</tr>
+		</table>
+	</form>
+	</div>
+</body>
+
+<!--
+<!DOCTYPE html>
+	<head>
+		<?php 
+			//include ("libraries.php");
+		?>
+		<title>Admin Page Login</title>
+	</head>
+	<body>
+		<form>
+			<table>
+				<tr>
+					<td colspan="3">Admin Page Login</td>
+				</tr>
+				<tr>
+					<td>ID</td>
+					<td><input type="text" id="login_id" placeholder="admin id"/></td>
+					<td rowspan="2"><button type="button" onclick="justLogin();">Login</button></td>
+				</tr>
+				<tr>
+					<td>PW</td>
+					<td><input type="password" id="login_pw" placeholder="admin pw" onkeypress="if(event.keyCode==13){justLogin();}"/></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>
+-->
+>>>>>>> 00df1daf09906181718eb2672f29a318cd9d38f0

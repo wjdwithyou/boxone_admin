@@ -28,7 +28,7 @@
 		            setCookie("userInputId", userInputId, 7); // 7일 동안 쿠키 보관
 		        }else{ // ID 저장하기 체크 해제 시,
 		            deleteCookie("userInputId");
-		        }
+		        }bbb
 		    });
 		     
 		    // ID 저장하기를 체크한 상태에서 ID를 입력하는 경우, 이럴 때도 쿠키 저장.
@@ -120,8 +120,12 @@
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-default">Sign in</button>
     </div>
-  </div>
+	</div>
+  
 </form>
 </div>
+
+
+sdfadf
 
 </body>
