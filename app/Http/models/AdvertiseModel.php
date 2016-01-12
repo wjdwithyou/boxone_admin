@@ -30,8 +30,9 @@ class AdvertiseModel{
 	}
 	*/
 	
-	function update($idx, $name, $website_link, $image, $alt){
-		if (!(inputErrorCheck($idx, 'idx')
+	function update($admin_last, $idx, $name, $website_link, $image, $alt){
+		if (!(inputErrorCheck($admin_last, 'admin_last')
+			&& inputErrorCheck($idx, 'idx')
 			&& inputErrorCheck($name, 'name')
 			&& inputErrorCheck($website_link, 'website_link')
 			&& inputErrorCheck($image, 'image')
@@ -49,8 +50,8 @@ class AdvertiseModel{
 		
 		$img_adr = "https://s3-ap-northeast-1.amazonaws.com/boxone-image/advertise/".$img_name;	// 저장될 주소
 		
-		$result = DB::update('update advertise set name=?, website_link=?, image=?, alt=?, upload=now() where idx=?',
-			array($name, $website_link, $img_adr, $alt, $idx));
+		$result = DB::update('update advertise set admin_last=?, name=?, website_link=?, image=?, alt=?, upload=now() where idx=?',
+			array($admin_last, $name, $website_link, $img_adr, $alt, $idx));
 		
 		$s3 = AWS::createClient('s3');
 		 
@@ -75,13 +76,13 @@ class AdvertiseModel{
 	*/
 	
 	function getAdvertiseAll(){
-		$result = DB::select('select idx, id, name, image, upload from advertise');
+		$result = DB::select('select idx, id, name, image, upload, admin_last from advertise');
 		
 		return array('code' => 1, 'msg' => 'success', 'data' => $result);
 	}
 	
 	function getAdvertiseByIdx($idx){
-		$result = DB::select('select id, image, website_link, name, alt from advertise where idx=?', array($idx));
+		$result = DB::select('select id, image, website_link, name, alt, admin_last from advertise where idx=?', array($idx));
 		
 		return array('code' => 1, 'msg' => 'success', 'data' => $result);
 	}

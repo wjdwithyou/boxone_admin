@@ -9,15 +9,9 @@ class AdvertiseController extends Controller{
 		$adModel = new AdvertiseModel();
 		
 		$adList = $adModel->getAdvertiseAll();
-		
 		// use in php
 		// $adList[n]->idx, id...
 		
-		
-		/*
-		 * Things to do.
-		 * Session
-		 * 
 		if (session_id() == '')
 			session_start();
 		
@@ -25,8 +19,8 @@ class AdvertiseController extends Controller{
 			echo ($_SESSION['idx']);
 			return;	
 		}
-		echo ($_SESSION['idx']);
-		*/
+		echo ($_SESSION['id']);
+		
 		
 		$page = 'advertise';
 		return view($page, array('page' => $page, 'adList' => $adList['data']));
@@ -55,27 +49,32 @@ class AdvertiseController extends Controller{
 		$website_link = Request::input('link');
 		$alt = Request::input('comment');
 		
-		if (Request::hasFile('img'))
+		if (Request::hasFile('img')){
 			$image = Request::file('img');
+		}
 		else{
 			echo ("error in AdvertiseController::update()");
 			return;
 		}
 		
+		if (session_id() == '')
+			session_start();
 		
+		if (!isset($_SESSION['idx'])){
+			header('Content-Type: application/json');
+			echo json_encode(array('code' => 0, 'msg' => 'not logined'));
+		}
+		else{
+			$admin_last = $_SESSION['id'];
+			$result = $adModel->update($admin_last, $idx, $name, $website_link, $image, $alt);
+			
+			header('Content-Type: application/json');
+			echo json_encode($result);
+		}
 		
+		//$result = $adModel->update($idx, $name, $website_link, $image, $alt);
 		
-		
-		// session
-		
-		
-		
-		
-		
-		
-		$result = $adModel->update($idx, $name, $website_link, $image, $alt);
-		
-		header('Content-Type: application/json');
-		echo json_encode($result);
+		//header('Content-Type: application/json');
+		//echo json_encode($result);
 	}
 }
