@@ -19,10 +19,7 @@ class LoginController extends Controller{
 		$id = Request::input('id');
 		$pw = Request::input('pw');
 		
-		$result = $mbModel->login($id, $pw);
-		
-		//echo ("asdf");
-		//print_r($result);
+		$result = $mbModel->login($id, $pw);	// if you use create() instead of login(), you can make admin account.
 		
 		/*
 		 * Things to do.

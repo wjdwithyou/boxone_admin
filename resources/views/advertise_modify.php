@@ -35,13 +35,6 @@
  	<form action="<?=$adr_js?><?=$page?>.js" method="post">
  	<!--form action="C:/Users/User/Documents/boxone_laravel_test/public/js/advertise_modify.js" method="post"-->
     	<table align="center">
-    		
-    		<!-- Temp Notice -->
-       		<tr align="center">
-       			<td colspan="2"><font color="#FF0000">미리보기 기능은 Coming soon..</font></td>
-       		</tr>
-       		<!-- Temp Notice end -->
-       		
 		  <tr>
 		    <td class="color" width="230">Name</td>
 		    <td><input type="text" class="form-control" id="adm_name" name="name" value="<?= $info->name?>"></td>

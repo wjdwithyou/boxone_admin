@@ -60,7 +60,7 @@
 			    }
 			    return unescape(cookieValue);
 			}
-			
+	
 		    $("#login").click(function(){
 		        var id = theForm["id"].value;
 				var passwd = theForm["passwd"].value;
@@ -76,6 +76,7 @@
 					justLogin();
 				}
 		    });
+
 		});
 		
 		</script>
@@ -87,22 +88,22 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 	<div class="content">
-	<form id="theForm" class="form-horizontal" >
 		<table>
 			<tr>
 				<td class="title"><label for="id" class="control-label" >ID</label></td>
 				<td> <input type="text" class="form-control" id="id" name="id" placeholder="ID"></td>
-				<td rowspan="2" class="tabl_btn"><button id="login" type="submit" class="btn btn-default">Log in</button></td>
+
+				<td rowspan="2" class="tabl_btn"><button type="button" class="btn btn-default" onclick='justLogin();'>Log in</button></td>
+
 			</tr>
 			<tr>
 				<td class="title"><label for="inputPassword3" class="control-label">Password</label></td>
-				<td><input type="password" class="form-control" id="inputPassword3" name="passwd" placeholder="Password"></td>
+				<td><input type="password" class="form-control" id="pw" name="passwd" placeholder="Password"></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td rowspan="2"> <input type="checkbox" id="idSaveCheck">  Remember me </td>
 			</tr>
 		</table>
-	</form>
 	</div>
 </body>

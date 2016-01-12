@@ -14,19 +14,13 @@
 	<div id="ad_board_wrap" class="cl_b content">
 
        	<table class="title" align="center">
-       	
-       		<!-- Temp Notice -->
-       		<tr align="center">
-       			<td colspan="5"><font color="#FF0000">PNG 파일만 넣어요 일단은ㅜㅜ</font></td>
-       		</tr>
-       		<!-- Temp Notice end -->
-       		
 		  <tr align="center">
 		  	<td class="ad_num" width="50px">No.</td>
 		  	<td class="ad_pc">Location</td>
 		    <td class="ad_board_title" align="left">Name</td>
 		    <td class="ad_pc">Image</td>
 		    <td class="ad_pc" >Upload time</td>
+		    <td class="ad_pc" >Recent uploader</td>
 		  </tr>
 		  <?php foreach($adList as $i) :?>      
                   <!-- 광고목록 글 -->
@@ -38,6 +32,7 @@
 					 <td class="ad_img"><img width="150px" height="80px" src="<?=$adr_img ?>advertise/<?=$i->idx?>_img.png"/></td>
 
                      <td class="ad_pc"><?= $i->upload?></td>
+                     <!td class="ad_pc"><?= $i->admin_last?></td>
                   </tr>
                   <!-- /광고목록 글 -->
         	<?php endforeach;?>
