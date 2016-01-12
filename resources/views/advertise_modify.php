@@ -33,7 +33,6 @@
 <div id="content">
  	<h3 align="center">Modify advertisement</h1>
  	<form action="<?=$adr_js?><?=$page?>.js" method="post">
- 	<!--form action="C:/Users/User/Documents/boxone_laravel_test/public/js/advertise_modify.js" method="post"-->
     	<table align="center">
 		  <tr>
 		    <td class="color" width="230">Name</td>

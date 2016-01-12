@@ -35,7 +35,7 @@ class AdvertiseModel{
 			&& inputErrorCheck($idx, 'idx')
 			&& inputErrorCheck($name, 'name')
 			&& inputErrorCheck($website_link, 'website_link')
-			&& inputErrorCheck($image, 'image')
+			//&& inputErrorCheck($image, 'image')
 			&& inputErrorCheck($alt, 'alt')))
 			return;
 		
@@ -43,24 +43,30 @@ class AdvertiseModel{
 		$ext = $image->getClientOriginalExtension();	// 파일 확장자 얻어오기
 		$img_name = $idx."_img.".$ext;	// 저장될 파일명
 		*/
-
-		// 임시방편
-		$img_name = $idx."_img."."png";	// 전부 png로 바꿔서 저장!
-										// gif같은거 처리하려면 결국 바꾸긴 해야한다..
 		
-		$img_adr = "https://s3-ap-northeast-1.amazonaws.com/boxone-image/advertise/".$img_name;	// 저장될 주소
-		
-		$result = DB::update('update advertise set admin_last=?, name=?, website_link=?, image=?, alt=?, upload=now() where idx=?',
-			array($admin_last, $name, $website_link, $img_adr, $alt, $idx));
-		
-		$s3 = AWS::createClient('s3');
-		 
-		//$image_name = $document_idx.'_image'.$image_num.'.'.$ext;
-		$s3->putObject(array(
-			'Bucket' 	=> 'boxone-image',
-			'Key'		=> 'advertise/'.$img_name,
-			'SourceFile'	=> $image,
-		));
+		if ($image){
+			// 임시방편
+			$img_name = $idx."_img."."png";	// 전부 png로 바꿔서 저장!
+			// gif같은거 처리하려면 결국 바꾸긴 해야한다..
+			
+			$img_adr = "https://s3-ap-northeast-1.amazonaws.com/boxone-image/advertise/".$img_name;	// 저장될 주소
+			
+			$result = DB::update('update advertise set admin_last=?, name=?, website_link=?, image=?, alt=?, upload=now() where idx=?',
+					array($admin_last, $name, $website_link, $img_adr, $alt, $idx));
+			
+			$s3 = AWS::createClient('s3');
+				
+			//$image_name = $document_idx.'_image'.$image_num.'.'.$ext;
+			$s3->putObject(array(
+					'Bucket' 	=> 'boxone-image',
+					'Key'		=> 'advertise/'.$img_name,
+					'SourceFile'	=> $image,
+			));
+		}
+		else{
+			$result = DB::update('update advertise set admin_last=?, name=?, website_link=?, alt=?, upload=now() where idx=?',
+					array($admin_last, $name, $website_link, $alt, $idx));
+		}
 		
 		if ($result == true)
 			return array('code' => 1, 'msg' => 'update success', 'data' => $result);

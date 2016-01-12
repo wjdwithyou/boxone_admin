@@ -201,48 +201,6 @@ $(document).ready(function(){
 });
 */
 
-/*
-function func(){
-	// var adr_ctr
-	
-	if (img[0].files && img[0].files[0])
-		var img1 = img[0].files[0];
-	
-	data = new FormData();
-	
-	data.append("img", img1);
-	
-	$.ajax({
-        data: data,
-        type: "POST",
-        url: adr_ctr + "Advertise/update",
-        cache: false,
-        contentType: false,
-        processData: false,
-		success: function(result){
-			//alert (JSON.stringify(result));
-			result = JSON.parse(result);
-			
-			if (result.code == 1){
-				var adr_ctr = $("#adr_ctr").val();
-				alert("수정되었습니다.");
-				chkWrite = false;
-				location.href = adr_ctr + "Advertise/index";
-			}
-			else
-				alert("잘못된 접근입니다.");
-		},
-		error: function(request, status, error){
-			console.log(request.responseText);
-			alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-		}
-	});
-	
-}
-*/
-
-var chkWrite = true;
-
 function adUpdate(idx){
 	var adr_ctr = $("#adr_ctr").val();
 	
@@ -254,6 +212,8 @@ function adUpdate(idx){
 	
 	if (img[0].files && img[0].files[0])
 		var img1 = img[0].files[0]; // 임시
+	else
+		var img1 = '';
 	//var comment = idx["comment"].value;
 	
 	if(name==""){
@@ -279,6 +239,7 @@ function adUpdate(idx){
 	    $.ajax({
 	        data: data,
 	        type: "POST",
+	        async: false,
 	        url: adr_ctr + "Advertise/update",
 	        cache: false,
 	        contentType: false,
@@ -288,12 +249,27 @@ function adUpdate(idx){
 				result = JSON.parse(result);
 				
 				if (result.code == 1){
+					
+					/*
+					// pause
+					var now = new Date();
+					var exitTime = now.getTime() + 1000;
+					
+					while (true){
+						now = new Date();
+						
+						if (now.getTime() > exitTime)
+							break;
+					}
+					// pause end
+					*/
+					
 					alert("수정되었습니다.");
-					chkWrite = false;
 					location.href = adr_ctr + "Advertise/index";
 				}
-				else
+				else{
 					alert("잘못된 접근입니다.");
+				}
 			},
 			error: function(request, status, error){
 				console.log(request.responseText);
@@ -302,6 +278,4 @@ function adUpdate(idx){
 		});
 	}
 }
-
-
 
