@@ -39,4 +39,13 @@ class LoginController extends Controller{
 		header('Content-Type: application/json');
 		echo json_encode($result);
 	}
+	
+	public function loginSharon(){
+		$mbModel = new MemberModel();
+		
+		$id = Request::input('id');
+		$pw = Request::input('pw');
+		
+		$result = $mbModel->login($id, $pw);
+	}
 }

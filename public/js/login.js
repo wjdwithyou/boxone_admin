@@ -1,10 +1,12 @@
+
 function justLogin(){
-	location.href = adr_ctr + "Advertise/index";
-	/*
+	//location.href = "http://localhost:8000/Advertise/index";
+	//location.href = adr_ctr + "Advertise/index";
+	
 	var adr_ctr = $("#adr_ctr").val();
 	
 	var id = $("#id").val();
-	var pw = $("#inputPassword3").val();
+	var pw = $("#pw").val();
 	
 	//var lg = $("#logined").val();
 	//var ss = $_SESSION['idx'];
@@ -42,5 +44,4 @@ function justLogin(){
 		    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 		}
 	});
-	*/
 }
