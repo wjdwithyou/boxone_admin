@@ -13,6 +13,11 @@ class AdvertiseController extends Controller{
 		// use in php
 		// $adList[n]->idx, id...
 		
+		
+		/*
+		 * Things to do.
+		 * Session
+		 * 
 		if (session_id() == '')
 			session_start();
 		
@@ -21,6 +26,7 @@ class AdvertiseController extends Controller{
 			return;	
 		}
 		echo ($_SESSION['idx']);
+		*/
 		
 		$page = 'advertise';
 		return view($page, array('page' => $page, 'adList' => $adList['data']));

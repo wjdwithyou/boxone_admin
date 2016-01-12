@@ -13,10 +13,10 @@
 	}
 	</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<!--script type="text/javascript" src="/plugins/cookie/jquery.cookie.js"></script-->
 		<script type="text/javascript" src="<?=$adr_js?>jquery.cookie.js"></script>
 		
 		<script>
+		
 		$(document).ready(function(){
 			 // 저장된 쿠키값을 가져와서 ID 칸에 넣어준다. 없으면 공백으로 들어감.
 		    var userInputId = getCookie("userInputId");
@@ -80,7 +80,6 @@
 					alert("Please enter the Password");	
 				}
 				else{
-					//alert("ok");
 					justLogin();
 				}
 		    });
@@ -130,32 +129,3 @@
 </div>
 
 </body>
-
-<!--
-<!DOCTYPE html>
-	<head>
-		<?php 
-			//include ("libraries.php");
-		?>
-		<title>Admin Page Login</title>
-	</head>
-	<body>
-		<form>
-			<table>
-				<tr>
-					<td colspan="3">Admin Page Login</td>
-				</tr>
-				<tr>
-					<td>ID</td>
-					<td><input type="text" id="login_id" placeholder="admin id"/></td>
-					<td rowspan="2"><button type="button" onclick="justLogin();">Login</button></td>
-				</tr>
-				<tr>
-					<td>PW</td>
-					<td><input type="password" id="login_pw" placeholder="admin pw" onkeypress="if(event.keyCode==13){justLogin();}"/></td>
-				</tr>
-			</table>
-		</form>
-	</body>
-</html>
--->

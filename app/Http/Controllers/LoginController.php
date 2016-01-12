@@ -21,6 +21,12 @@ class LoginController extends Controller{
 		
 		$result = $mbModel->login($id, $pw);
 		
+		//echo ("asdf");
+		//print_r($result);
+		
+		/*
+		 * Things to do.
+		 * Session
 		if ($result['code'] == 1){
 			if (session_id() == '')
 				session_start();
@@ -28,6 +34,7 @@ class LoginController extends Controller{
 			$_SESSION['idx'] = $result['data'][0]->idx;
 			echo ($result['data'][0]->idx);
 		}
+		*/
 		
 		header('Content-Type: application/json');
 		echo json_encode($result);
