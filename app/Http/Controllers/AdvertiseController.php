@@ -57,9 +57,11 @@ class AdvertiseController extends Controller{
 		
 		if (Request::hasFile('img'))
 			$image = Request::file('img');
+		
 		else{
 			echo ("error in AdvertiseController::update()");
 			return;
+			
 		}
 		
 		

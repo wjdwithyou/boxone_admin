@@ -1,4 +1,5 @@
 function justLogin(){
+	alert("login");
 	location.href = adr_ctr + "Advertise/index";
 	/*
 	var adr_ctr = $("#adr_ctr").val();

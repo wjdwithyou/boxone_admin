@@ -61,7 +61,7 @@
 			    return unescape(cookieValue);
 			}
 			
-		    $("form").submit(function(){
+		    $("#login").click(function(){
 		        var id = theForm["id"].value;
 				var passwd = theForm["passwd"].value;
 				
@@ -72,6 +72,7 @@
 					alert("Please enter the Password");	
 				}
 				else{
+					alert("?");
 					justLogin();
 				}
 		    });
@@ -91,7 +92,7 @@
 			<tr>
 				<td class="title"><label for="id" class="control-label" >ID</label></td>
 				<td> <input type="text" class="form-control" id="id" name="id" placeholder="ID"></td>
-				<td rowspan="2" class="tabl_btn"><button type="submit" class="btn btn-default">Log in</button></td>
+				<td rowspan="2" class="tabl_btn"><button id="login" type="submit" class="btn btn-default">Log in</button></td>
 			</tr>
 			<tr>
 				<td class="title"><label for="inputPassword3" class="control-label">Password</label></td>
