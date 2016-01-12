@@ -85,45 +85,6 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-<<<<<<< HEAD
-
-<div class="content">
-<form id="theForm" class="form-horizontal" >
-
-
-  <div class="form-group">
-    <label for="id" class="col-sm-2 control-label" >ID</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="id" name="id" placeholder="ID">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword3" name="passwd" placeholder="Password">
-      
-    </div
-  </div>
-
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" id="idSaveCheck"> Remember me
-        </label>
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Sign in</button>
-    </div>
-  </div>
-</form>
-</div>
-
-</body>
-=======
 	<div class="content">
 	<form id="theForm" class="form-horizontal" >
 		<table>
@@ -144,33 +105,3 @@
 	</form>
 	</div>
 </body>
-
-<!--
-<!DOCTYPE html>
-	<head>
-		<?php 
-			//include ("libraries.php");
-		?>
-		<title>Admin Page Login</title>
-	</head>
-	<body>
-		<form>
-			<table>
-				<tr>
-					<td colspan="3">Admin Page Login</td>
-				</tr>
-				<tr>
-					<td>ID</td>
-					<td><input type="text" id="login_id" placeholder="admin id"/></td>
-					<td rowspan="2"><button type="button" onclick="justLogin();">Login</button></td>
-				</tr>
-				<tr>
-					<td>PW</td>
-					<td><input type="password" id="login_pw" placeholder="admin pw" onkeypress="if(event.keyCode==13){justLogin();}"/></td>
-				</tr>
-			</table>
-		</form>
-	</body>
-</html>
--->
->>>>>>> 00df1daf09906181718eb2672f29a318cd9d38f0
