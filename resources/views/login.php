@@ -78,36 +78,7 @@
 		});
 		
 		</script>
-	<style type="text/css">
-	
-	.content{
-		max-width: 400px;
-		width: 400px;
-		margin: 0 auto;
-		padding-top: 10%;
-	}
-	td, tr {
-		
-		padding: 5px !important;
 
-	}
-	.title{
-		width: 50px;
-		text-align: center;
-		vertical-align: middle;
-
-	}
-	.btn{
-		height: 100% !important;
-	}
-	.tabl_btn{
-		padding: 0px 0px 0px 5px !important;
-		
-	}
-	label{
-		margin-bottom: 0px !important;
-	}
-	</style>
 </head>
 
 <body>
