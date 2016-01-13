@@ -21,7 +21,8 @@ class AdvertiseController extends Controller{
 		// use in php
 		// $adList[n]->idx, id...
 		
-		
+		//echo(mb_detect_encoding($adList['data'][0]->name));
+		//return;
 		
 		$page = 'advertise';
 		return view($page, array('page' => $page, 'adList' => $adList['data']));
