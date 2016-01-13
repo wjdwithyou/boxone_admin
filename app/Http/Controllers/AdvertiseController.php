@@ -75,11 +75,7 @@ class AdvertiseController extends Controller{
 		
 		$adModel = new AdvertiseModel();
 		
-		/*
-		 * depend on view
-		 */
-		
-		// location id
+		$id = Request::input('location');
 		$name = Request::input('name');
 		$website_link = Request::input('link');
 		$alt = Request::input('comment');
@@ -94,11 +90,10 @@ class AdvertiseController extends Controller{
 		}
 		*/
 		
-		
 		// session additional?
 		
 		$admin_last = $_SESSION['id'];
-		$result = $adModel->create($admin_last, $);
+		$result = $adModel->create($admin_last, $id, $name, $website_link, $image, $alt);
 		
 		header('Content-Type: application/json');
 		echo json_encode($result);

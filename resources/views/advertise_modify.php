@@ -55,7 +55,7 @@
 		  </tr>
 		  <tr>
 		    <td class="color" width="230">Location</td>
-		    <td><input type="text" class="form-control link" id="adm_name" name="name" value="<?= $info->id?>" readonly></td>
+		    <td><input type="text" class="form-control link" id="adm_location" name="location" value="<?= $info->id?>" readonly></td>
 		  </tr>
 		  <tr>
 		    <td class="color">Link</td>
