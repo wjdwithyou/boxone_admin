@@ -242,8 +242,6 @@ function func(){
 }
 */
 
-var chkWrite = true;
-
 function adNew(){
 	var adr_ctr = $("#adr_ctr").val();
 	
@@ -279,17 +277,17 @@ function adNew(){
 	    $.ajax({
 	        data: data,
 	        type: "POST",
+	        async: false,
 	        url: adr_ctr + "Advertise/create",
 	        cache: false,
 	        contentType: false,
 	        processData: false,
 			success: function(result){
-				alert (JSON.stringify(result));
+				//alert (JSON.stringify(result));
 				result = JSON.parse(result);
 				
 				if (result.code == 1){
 					alert("등록되었습니다.");
-					chkWrite = false;
 					location.href = adr_ctr + "Advertise/index";
 				}
 				else
@@ -348,7 +346,7 @@ function adUpdate(idx){
 	        contentType: false,
 	        processData: false,
 			success: function(result){
-				alert (JSON.stringify(result));
+				//alert (JSON.stringify(result));
 				result = JSON.parse(result);
 				
 				if (result.code == 1){

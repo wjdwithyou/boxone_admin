@@ -6,23 +6,51 @@ use AWS;
 include_once dirname(__FILE__)."/../method/baseFunction.php";
 
 class AdvertiseModel{
-	function create($admin_last, $id, $name, $image, $website_link, $alt){
-		if (!(inputErrorCheck($id, 'id')
+	function create($admin_last, $id, $name, $website_link, $image, $alt){
+		if (!(inputErrorCheck($admin_last, 'admin_last')
+			&& inputErrorCheck($id, 'id')
 			&& inputErrorCheck($name, 'name')
-			&& inputErrorCheck($image, 'image')
 			&& inputErrorCheck($website_link, 'website_link')
+			&& inputErrorCheck($image, 'image')
 			&& inputErrorCheck($alt, 'alt')))
 			return;
 		
-		$result = DB::table('advertise')->insertGetId(
-			array(	'id' => $id,
-					'name' => $name,
-					'image' => $image,
-					'website_link' => $website_link,
-					'alt' => $alt,
-					'upload' => DB::raw('now()')));
+		/*
+		$ext = $image->getClientOriginalExtension();	// 파일 확장자 얻어오기
+		$img_name = $idx."_img.".$ext;	// 저장될 파일명
+		*/
 		
-		// img..
+		$result_f = DB::table('advertise')->insertGetID(
+				array(	'admin_last' => $admin_last,
+						'id' => $id,
+						'name' => $name,
+						'website_link' => $website_link,
+						'alt' => $alt,
+						'upload' => DB::raw('now()')
+				));
+		
+		$rt = DB::select('select idx, upload from advertise where id=?', array($id));
+		
+		
+		// 임시방편
+		$img_name = $rt[0]->idx."_".$rt[0]->upload."."."png";
+		// gif같은거 처리하려면 결국 바꾸긴 해야한다..
+			
+		$img_adr = "https://s3-ap-northeast-1.amazonaws.com/boxone-image/advertise/".$img_name;	// 저장될 주소
+		
+		$result_s = DB::update('update advertise set image=? where idx=?', array($img_adr, $rt[0]->idx));
+		
+		$result = ($result_f && $result_s)? true: false;
+		
+		
+		
+		$s3 = AWS::createClient('s3');
+			
+		$s3->putObject(array(
+				'Bucket'		=> 'boxone-image',
+				'Key'			=> 'advertise/'.$img_name,
+				'SourceFile'	=> $image,
+		));
 		
 		return array('code' => 1, 'msg' => 'created', 'data' => $result);
 	}

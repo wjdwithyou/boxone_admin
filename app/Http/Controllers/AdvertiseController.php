@@ -27,6 +27,19 @@ class AdvertiseController extends Controller{
 		return view($page, array('page' => $page, 'adList' => $adList['data']));
 	}
 	
+	public function indexNew(){
+		if (session_id() == '')
+			session_start();
+		
+		if (!isset($_SESSION['idx'])){
+			echo ("no session");
+			return;
+		}
+		//echo ($_SESSION['id']);
+		
+		$page = 'advertise_new';
+		return view($page, array('page' => $page));
+	}
 	
 	public function indexModify(){
 		if (session_id() == '')
@@ -48,6 +61,42 @@ class AdvertiseController extends Controller{
 				array(	'page' => $page,
 						'info' => $info['data'][0],
 						'idx' => $ad_idx));
+	}
+	
+	public function create(){
+		if (session_id() == '')
+			session_start();
+		
+		if (!isset($_SESSION['idx'])){
+			echo ("no session");
+			return;
+		}
+		//echo ($_SESSION['id']);
+		
+		$adModel = new AdvertiseModel();
+		
+		$id = Request::input('location');
+		$name = Request::input('name');
+		$website_link = Request::input('link');
+		$alt = Request::input('comment');
+		
+		$image = Request::file('img');
+		/*
+		if (Request::hasFile('img')){
+			$image = Request::file('img');
+		}
+		else{
+			$image = "";
+		}
+		*/
+		
+		// session additional?
+		
+		$admin_last = $_SESSION['id'];
+		$result = $adModel->create($admin_last, $id, $name, $website_link, $image, $alt);
+		
+		header('Content-Type: application/json');
+		echo json_encode($result);
 	}
 	
 	public function update(){
