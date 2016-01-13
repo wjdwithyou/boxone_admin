@@ -6,20 +6,21 @@ use Request;
 
 class AdvertiseController extends Controller{
 	public function index(){
+		if (session_id() == '')
+			session_start();
+		
+		if (!isset($_SESSION['idx'])){
+			echo ("no session");
+			return;
+		}
+		//echo ($_SESSION['id']);
+		
 		$adModel = new AdvertiseModel();
 		
 		$adList = $adModel->getAdvertiseAll();
 		// use in php
 		// $adList[n]->idx, id...
 		
-		if (session_id() == '')
-			session_start();
-		
-		if (!isset($_SESSION['idx'])){
-			echo ($_SESSION['idx']);
-			return;	
-		}
-		echo ($_SESSION['id']);
 		
 		
 		$page = 'advertise';
@@ -28,6 +29,15 @@ class AdvertiseController extends Controller{
 	
 	
 	public function indexModify(){
+		if (session_id() == '')
+			session_start();
+		
+		if (!isset($_SESSION['idx'])){
+			echo ("no session");
+			return;
+		}
+		//echo ($_SESSION['id']);
+		
 		$adModel = new AdvertiseModel();
 		$ad_idx = Request::input('idx');
 		
@@ -41,6 +51,15 @@ class AdvertiseController extends Controller{
 	}
 	
 	public function update(){
+		if (session_id() == '')
+			session_start();
+		
+		if (!isset($_SESSION['idx'])){
+			echo ("no session");
+			return;
+		}
+		//echo ($_SESSION['id']);
+		
 		$adModel = new AdvertiseModel();
 		
 		$idx = Request::input('idx');
@@ -49,14 +68,17 @@ class AdvertiseController extends Controller{
 		$website_link = Request::input('link');
 		$alt = Request::input('comment');
 		
+		$image = Request::file('img');
+		/*
 		if (Request::hasFile('img')){
 			$image = Request::file('img');
 		}
 		else{
-			echo ("error in AdvertiseController::update()");
-			return;
-			
+
+			$image = "";
+
 		}
+		*/
 		
 		if (session_id() == '')
 			session_start();
@@ -72,10 +94,5 @@ class AdvertiseController extends Controller{
 			header('Content-Type: application/json');
 			echo json_encode($result);
 		}
-		
-		//$result = $adModel->update($idx, $name, $website_link, $image, $alt);
-		
-		//header('Content-Type: application/json');
-		//echo json_encode($result);
 	}
 }

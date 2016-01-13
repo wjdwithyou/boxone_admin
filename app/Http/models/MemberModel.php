@@ -4,7 +4,6 @@ namespace App\Http\models;
 use DB;
 use Hash;
 
-// include baseFunc?
 
 class MemberModel{
 	
@@ -21,8 +20,8 @@ class MemberModel{
 		
 		$member_idx = DB::table('admin')->insertGetId(
 			array(
-				'id'=>$id,
-				'pw'=>$encrypt
+				'id' => $id,
+				'pw' => $encrypt
 			)	
 		);
 		

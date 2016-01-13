@@ -201,6 +201,7 @@ $(document).ready(function(){
 });
 */
 
+
 /*
 function func(){
 	// var adr_ctr
@@ -302,6 +303,7 @@ function adNew(){
 	}
 }
 
+
 function adUpdate(idx){
 	var adr_ctr = $("#adr_ctr").val();
 	
@@ -313,6 +315,8 @@ function adUpdate(idx){
 	
 	if (img[0].files && img[0].files[0])
 		var img1 = img[0].files[0]; // 임시
+	else
+		var img1 = '';
 	//var comment = idx["comment"].value;
 	
 	if(name==""){
@@ -338,6 +342,7 @@ function adUpdate(idx){
 	    $.ajax({
 	        data: data,
 	        type: "POST",
+	        async: false,
 	        url: adr_ctr + "Advertise/update",
 	        cache: false,
 	        contentType: false,
@@ -348,11 +353,11 @@ function adUpdate(idx){
 				
 				if (result.code == 1){
 					alert("수정되었습니다.");
-					chkWrite = false;
 					location.href = adr_ctr + "Advertise/index";
 				}
-				else
+				else{
 					alert("잘못된 접근입니다.");
+				}
 			},
 			error: function(request, status, error){
 				console.log(request.responseText);
@@ -361,6 +366,4 @@ function adUpdate(idx){
 		});
 	}
 }
-
-
 

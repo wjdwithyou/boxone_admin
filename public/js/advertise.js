@@ -19,7 +19,7 @@
 	
 
 function adModify(ad_idx){
-	var logined = $("logined").val();
+	var logined = $("#logined").val();
 	var adr_ctr = $("#adr_ctr").val();
 	
 	if (logined == '0'){

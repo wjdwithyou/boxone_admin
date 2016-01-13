@@ -48,7 +48,6 @@
 <div id="content">
  	<h3 align="center">Modify advertisement</h1>
  	<form action="<?=$adr_js?><?=$page?>.js" method="post">
- 	<!--form action="C:/Users/User/Documents/boxone_laravel_test/public/js/advertise_modify.js" method="post"-->
     	<table align="center">
 		  <tr>
 		    <td class="color" width="230">Name</td>
@@ -68,8 +67,8 @@
 		  </tr>
 		  <tr>
 
-		    <td height="170"><img width="200" height="150" id="input_img" class="img-thumbnail" src="<?=$adr_img?>advertise/<?=$idx?>_img.png"/></td>
-
+		    <td height="170"><img width="200" height="150" id="input_img" class="img-thumbnail" src="<?=$adr_img?>advertise/<?=$idx?>_<?=$info->upload?>.png"/></td>
+			
 		  </tr>
 		  <tr>
 		    <td class="color">Comment</td>
