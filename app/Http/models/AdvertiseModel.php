@@ -6,11 +6,12 @@ use AWS;
 include_once dirname(__FILE__)."/../method/baseFunction.php";
 
 class AdvertiseModel{
-	function create($admin_last, $id, $name, $image, $website_link, $alt){
-		if (!(inputErrorCheck($id, 'id')
+	function create($admin_last, $id, $name, $website_link, $image, $alt){
+		if (!(inputErrorCheck($admin_last, 'admin_last')
+			&& inputErrorCheck($id, 'id')
 			&& inputErrorCheck($name, 'name')
-			&& inputErrorCheck($image, 'image')
 			&& inputErrorCheck($website_link, 'website_link')
+			&& inputErrorCheck($image, 'image')
 			&& inputErrorCheck($alt, 'alt')))
 			return;
 		
