@@ -87,3 +87,18 @@
 			    background-color: #E1E1E1;
 			    border-color: #E1E1E1;
 			}
+			.menu_nav{
+				width: 1025px;
+				margin-right: auto;
+				margin-left: auto;
+				background-color: lightyellow;				
+			}
+			.menu_nav::before{
+				width: 100%;
+				content: "gd";
+				background-color: red;
+			}
+			.menu_nav::after{
+				content:"!!!!";
+			}
+
