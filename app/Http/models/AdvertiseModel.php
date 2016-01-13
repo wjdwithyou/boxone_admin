@@ -15,6 +15,8 @@ class AdvertiseModel{
 			&& inputErrorCheck($alt, 'alt')))
 			return;
 		
+		// id redunduncy check?
+		
 		$result_f = DB::table('advertise')->insertGetID(
 				array(	'admin_last' => $admin_last,
 						'id' => $id,
@@ -26,28 +28,14 @@ class AdvertiseModel{
 		
 		$rt = DB::select('select idx, upload from advertise where id=?', array($id));
 		
-		/*
-		// test start
+		
+		
 		$s3AdvAdr = "https://s3-ap-northeast-1.amazonaws.com/boxone-image/advertise/";
 		$ext = $image->getClientOriginalExtension();	// 파일 확장자 얻어오기
 		
 		$img_name = $rt[0]->idx."_".$rt[0]->upload.".".$ext;
 		
 		$img_adr = $s3AdvAdr.$img_name;
-		
-		$result_s = DB::update('update advertise set image=? where idx=?', array($img_adr, $rt[0]->idx));
-		
-		$result = ($result_f && $result_s)? true: false;
-		
-		// test end
-		*/
-		
-		
-		// 임시방편
-		$img_name = $rt[0]->idx."_".$rt[0]->upload."."."png";
-		// gif같은거 처리하려면 결국 바꾸긴 해야한다..
-			
-		$img_adr = "https://s3-ap-northeast-1.amazonaws.com/boxone-image/advertise/".$img_name;	// 저장될 주소
 		
 		$result_s = DB::update('update advertise set image=? where idx=?', array($img_adr, $rt[0]->idx));
 		
@@ -75,20 +63,28 @@ class AdvertiseModel{
 			&& inputErrorCheck($alt, 'alt')))
 			return;
 		
-		/*
-		$ext = $image->getClientOriginalExtension();	// 파일 확장자 얻어오기
-		$img_name = $idx."_img.".$ext;	// 저장될 파일명
-		*/
-		
 		if ($image){
 			$result_f = DB::update('update advertise set admin_last=?, name=?, website_link=?, alt=?, upload=now() where idx=?',
 					array($admin_last, $name, $website_link, $alt, $idx));
 			
 			$time = DB::select('select upload from advertise where idx=?', array($idx));
 			
+			// test start
 			
 			
-			 // test start
+			
+			
+			// impl.
+			
+			
+			
+			
+			
+			// test end
+			
+			
+			
+			
 			$s3AdvAdr = "https://s3-ap-northeast-1.amazonaws.com/boxone-image/advertise/";
 			$ext = $image->getClientOriginalExtension();	// 파일 확장자 얻어오기
 			
@@ -100,20 +96,6 @@ class AdvertiseModel{
 			
 			$result = ($result_f && $result_s)? true: false;
 			
-			// test end
-			
-			
-			/*
-			// 임시방편
-			$img_name = $idx."_".$time[0]->upload."."."png"; // 전부 png로 바꿔서 저장!
-			// gif같은거 처리하려면 결국 바꾸긴 해야한다..
-			
-			$img_adr = "https://s3-ap-northeast-1.amazonaws.com/boxone-image/advertise/".$img_name;	// 저장될 주소
-			
-			$result_s = DB::update('update advertise set image=? where idx=?', array($img_adr, $idx));
-			
-			$result = ($result_f && $result_s)? true: false;
-			*/
 			
 			
 			$s3 = AWS::createClient('s3');
@@ -136,7 +118,7 @@ class AdvertiseModel{
 	}
 	
 	/*
-	// delete는 필요없는걸로!
+	// delete는 필요없는걸로?
 	function delete(){
 		return;
 	}
