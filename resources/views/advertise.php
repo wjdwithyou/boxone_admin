@@ -13,7 +13,14 @@
 
 	</head>
 
-<body>    
+<body>
+	<ul class="nav nav-tabs">
+	  <li role="presentation" class="active"><a href="#">Home</a></li>
+	  <li role="presentation"><a href="#">Profile</a></li>
+	  <li role="presentation"><a href="#">Messages</a></li>
+	</ul>
+
+	    
     <br>
     <h1 align="center">Contents</h1>
     
