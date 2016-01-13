@@ -1,73 +1,89 @@
-body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #333;
-    background-color: #fff;
-}
-.content{
-			/* width: 45%; */
+			body {
+			    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			    font-size: 14px;
+			    line-height: 1.42857143;
+			    color: #333;
+			    background-color: #fff;
+			}
+			.content{
+						/* width: 45%; */
+						
+						margin: 100px auto;
+						padding-top: 16px;
+			    		border-top: 1px solid #f15a63;
+					}
+					.margin{
+						margin-top: 20px; 
+					}
 			
-			margin: 100px auto;
-			padding-top: 16px;
-    		border-top: 1px solid #f15a63;
-		}
-		.margin{
-			margin-top: 20px; 
-		}
-
-		.line{
-				border-collapse: collapse;
-			    border-bottom: 1px solid #D3D3D3;
-		}
-		td{
-			padding: 20px;
-		}
-.ad_board_title {
-    padding-top: 16px;
-    padding-bottom: 8px;
-    font-size: 12px;
-    text-align: left;
-    /*width: 100%;*/
-    }
-#ad_board_wrap {
-	/* width: 45%; */
-	max-width: 1025px; /* 브라우저 창에 맞게 조절  */
-    padding-left: 8px;
-    padding-right: 8px;
-    border-top: none;
-    /* margin-top: 0; */
-   margin: 0 auto; /* 가운데 정렬  */
-}
-.ad_pc {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    font-size: 12px;
-    width: 150px;
-    text-align: center;
-}
-.ad_img {
-
-    width: 150px;
-    text-align: center;
-}
-.ad_num {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    font-size: 12px;
-    width: 50px;
-    text-align: center;
-}
-
-.title {
-    width: 100%;
-}
-.title tr{
-	padding-bottom: 16px;
-    border-bottom: 1px solid #ddd;
-    width: 100%;
-	
-}
-.title tr:first-of-type{
-	border-bottom: 1px solid #f15a63;
-}
+					.line{
+							border-collapse: collapse;
+						    border-bottom: 1px solid #D3D3D3;
+					}
+					td{
+						padding: 20px;
+					}
+			.ad_board_title {
+			    padding-top: 16px;
+			    padding-bottom: 8px;
+			    font-size: 12px;
+			    text-align: left;
+			    /*width: 100%;*/
+			    }
+			#ad_board_wrap {
+				/* width: 45%; */
+				max-width: 1025px; /* 브라우저 창에 맞게 조절  */
+			    padding-left: 8px;
+			    padding-right: 8px;
+			    border-top: none;
+			    /* margin-top: 0; */
+			   margin: 0 auto; /* 가운데 정렬  */
+			}
+			.ad_pc {
+			    padding-top: 30px;
+			    padding-bottom: 30px;
+			    font-size: 12px;
+			    width: 150px;
+			    text-align: center;
+			}
+			.ad_img {
+			
+			    width: 150px;
+			    text-align: center;
+			}
+			.ad_num {
+			    padding-top: 30px;
+			    padding-bottom: 30px;
+			    font-size: 12px;
+			    width: 50px;
+			    text-align: center;
+			}
+			
+			.title {
+			    width: 100%;
+			}
+			.title tr{
+				padding-bottom: 16px;
+			    border-bottom: 1px solid #ddd;
+			    width: 100%;
+				
+			}
+			.title tr:first-of-type{
+				border-bottom: 1px solid #f15a63;
+			}
+			.bo_btn {
+				float: right;
+				margin-top: 15px;
+			    width: 80px;
+			    color: black;
+			    background-color: #fff;
+			    border: 1px solid black;
+			    padding-top: 7px;
+			    padding-bottom: 7px;
+			    border-radius: 25px !important;
+			}
+			.bo_btn:hover, .boxone_btn:active {
+			    color: #fff;
+			    background-color: #E1E1E1;
+			    border-color: #E1E1E1;
+			}
