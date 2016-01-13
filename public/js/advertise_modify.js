@@ -365,3 +365,20 @@ function adUpdate(idx){
 	}
 }
 
+function checkNameId(i){
+	var id = $(i).val();
+	
+	if (id.length > 30){
+		alert("최대 30자 입니다.");
+		$(i).focus();
+	}
+}
+
+function chechLink(i){
+	var id = $(i).val();
+	
+	if (id.length > 250){
+		alert("최대 250자 입니다.");
+		$(i).focus();
+	}
+}

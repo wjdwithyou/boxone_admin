@@ -38,16 +38,15 @@
                      <td class="ad_pc"><?= $i->id?></td>
                      <td class="ad_board_title" style="font-weight:bold" ><a onclick='adModify(<?=$i->idx?>);'><?= $i->name?></a></td>
 
-					 <td class="ad_img"><img width="150px" height="80px" src="<?=$adr_img ?>advertise/<?=$i->idx?>_<?=$i->upload?>.png"/></td>
-
+					 <!--td class="ad_img"><img width="150px" height="80px" src="<?=$adr_img ?>advertise/<?=$i->idx?>_<?=$i->upload?>"/></td-->
+					<td class="ad_img"><img width="150px" height="80px" src="<?=$i->image?>"/></td>
+					 
                      <td class="ad_pc"><?= $i->upload?></td>
                      <td class="ad_pc"><?= $i->admin_last?></td>
                   </tr>
                   <!-- /광고목록 글 -->
         	<?php endforeach;?>
 		</table>
-		
-     		
     </div>
 
 
