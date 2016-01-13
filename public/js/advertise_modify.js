@@ -249,21 +249,6 @@ function adUpdate(idx){
 				result = JSON.parse(result);
 				
 				if (result.code == 1){
-					
-					/*
-					// pause
-					var now = new Date();
-					var exitTime = now.getTime() + 1000;
-					
-					while (true){
-						now = new Date();
-						
-						if (now.getTime() > exitTime)
-							break;
-					}
-					// pause end
-					*/
-					
 					alert("수정되었습니다.");
 					location.href = adr_ctr + "Advertise/index";
 				}
