@@ -9,10 +9,23 @@
     </head>
   <script>
 		$(document).ready(function(){
+		       
+		       if( <?=$idx?> == 0){ 	//새로등록
+		       	$(".modify").hide();
+		       	$(".insert").show();
+		       	$(".link").attr("readonly",false);
+		       }
+		       else{					//수정
+		        $(".insert").hide();	
+		       }
+		       
+		       
 		       $("#input_file").change(function(){
 		           readURL(this);
 		       });
-		   })
+		    });
+		       
+		   
 		   
 		   function readURL(input) {
 		      if (input.files && input.files[0]) {
@@ -25,6 +38,8 @@
 		      reader.readAsDataURL(input.files[0]);
 		      }
 		   }
+		   
+		
 		 
   </script>
     <body>
@@ -37,6 +52,10 @@
 		  <tr>
 		    <td class="color" width="230">Name</td>
 		    <td><input type="text" class="form-control" id="adm_name" name="name" value="<?= $info->name?>"></td>
+		  </tr>
+		  <tr>
+		    <td class="color" width="230">Location</td>
+		    <td><input type="text" class="form-control link" id="adm_name" name="name" value="<?= $info->id?>" readonly></td>
 		  </tr>
 		  <tr>
 		    <td class="color">Link</td>
@@ -60,8 +79,11 @@
 		    	<button type="button" id="btn_left" class="bo_btn" onclick="history.go(-1);" value="1">
 					Back
 				</button>
-		    	<button type="button" id="btn_right" class="bo_btn" onclick="adUpdate(<?=$idx?>);">
+		    	<button type="button" id="btn_right" class="bo_btn modify" onclick="adUpdate(<?=$idx?>);">
 					Modify
+				</button>
+				<button type="button" id="btn_right" class="bo_btn insert" onclick="adNew()">
+					Insert
 				</button>
 		    </td>
 		  </tr>

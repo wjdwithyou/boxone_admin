@@ -128,7 +128,9 @@ class AdvertiseController extends Controller{
 			$image = Request::file('img');
 		}
 		else{
+
 			$image = "";
+
 		}
 		*/
 		
