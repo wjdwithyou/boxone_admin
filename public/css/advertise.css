@@ -6,23 +6,22 @@
 			    background-color: #fff;
 			}
 			.content{
-						/* width: 45%; */
-						
-						margin: 100px auto;
-						padding-top: 16px;
-			    		border-top: 1px solid #f15a63;
-					}
-					.margin{
-						margin-top: 20px; 
-					}
+						/* width: 45%; */	
+				margin: 100px auto;
+				padding-top: 6px;
+			    border-top: 1px solid #f15a63;
+			}
+			.margin{
+				margin-top: 20px; 
+			}
 			
-					.line{
-							border-collapse: collapse;
-						    border-bottom: 1px solid #D3D3D3;
-					}
-					td{
-						padding: 20px;
-					}
+			.line{
+				border-collapse: collapse;
+				border-bottom: 1px solid #D3D3D3;
+			}
+			td{
+				padding: 20px;
+			}
 			.ad_board_title {
 			    padding-top: 16px;
 			    padding-bottom: 8px;
@@ -91,14 +90,34 @@
 				width: 1025px;
 				margin-right: auto;
 				margin-left: auto;
-				background-color: lightyellow;				
-			}
-			.menu_nav::before{
-				width: 100%;
-				content: "gd";
-				background-color: red;
-			}
-			.menu_nav::after{
-				content:"!!!!";
+				/* background-color: lightyellow; */				
 			}
 
+			.header_hr {
+			    border-top: 3px solid #ddd;
+			}
+			.header_hr2 {
+			    margin-top: 8px;
+			    margin-bottom: 16px;
+			    border-top: 1px solid #ddd;
+			}
+			.inner {
+			    max-width: 1024px;
+			    margin: 0 auto;
+			    padding-left: 8px;
+			    padding-right: 8px;
+			}
+			.img_logo{
+				margin-top: 30px;
+				margin-bottom: 30px;
+				width: 240px;
+				height: 60px;
+			}
+			.center{
+				max-width:1025px;
+				margin-left: auto;
+				margin-right: auto;
+				text-align: center;
+				
+			}
+						

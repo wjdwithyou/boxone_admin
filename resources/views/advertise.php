@@ -15,20 +15,22 @@
 	</head>
 
 <body>
-	
-	<div class="menu_nav">
-	<ul class="nav nav-tabs collaps">
-	  <li role="presentation" class="active"><a href="#">Home</a></li>
-	  <li role="presentation"><a href="#">Profile</a></li>
-	  <li role="presentation"><a href="#">Messages</a></li>
-	</ul>
+
+	<hr class="header_hr2"></hr>
+	<div class="center">
+	<img class="img_logo" src="<?=$adr_img?>advertise/boxone.png"/>
 	</div>
-	    
-    <br>
-    <h1 align="center">Contents</h1>
-    
+	
+	<div class="menu_nav center">
+ 	<ul class="nav nav-tabs nav-justified">
+	  <li role="presentation" class="active"><a href="#">Advertise</a></li>
+	  <li role="presentation"><a href="#">Notify</a></li>
+	  <li role="presentation"><a href="#">Member</a></li>
+	  <li role="presentation"><a href="#">Etc</a></li>
+	</ul>
+	</div>	
+
 	<div id="ad_board_wrap" class="cl_b content">
-		
  	<button type="button" id="btn_write" class="bo_btn" onclick='adModify(0);'>New ad</button>
  		
  		

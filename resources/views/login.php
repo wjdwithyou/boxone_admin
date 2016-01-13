@@ -60,7 +60,7 @@
 			    }
 			    return unescape(cookieValue);
 			}
-	
+			
 		    $("#login").click(function(){
 		        var id = theForm["id"].value;
 				var passwd = theForm["passwd"].value;
@@ -76,8 +76,14 @@
 					justLogin();
 				}
 		    });
-
 		});
+		
+		function enterCheck(){
+			if(event.keyCode==13){
+			justLogin();
+			}
+		}
+		
 
 		</script>
 
@@ -90,14 +96,14 @@
 		<table>
 			<tr>
 				<td class="title"><label for="id" class="control-label" >ID</label></td>
-				<td> <input type="text" class="form-control" id="id" name="id" placeholder="ID"></td>
+				<td> <input type="text" class="form-control" id="id" name="id" placeholder="ID" tabindex="1"></td>
 
 				<td rowspan="2" class="tabl_btn"><button type="button" class="btn btn-default" onclick='justLogin();'>Log in</button></td>
 
 			</tr>
 			<tr>
 				<td class="title"><label for="inputPassword3" class="control-label">Password</label></td>
-				<td><input type="password" class="form-control" id="pw" name="passwd" placeholder="Password"></td>
+				<td><input type="password" class="form-control" id="pw" name="passwd" placeholder="Password" tabindex="2" onkeydown='enterCheck();'></td>
 			</tr>
 			<tr>
 				<td></td>
