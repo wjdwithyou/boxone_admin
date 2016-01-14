@@ -288,7 +288,7 @@ function adNew(){
 				
 				if (result.code == 1){
 					alert("등록되었습니다.");
-					location.href = adr_ctr + "Advertise/index";
+					top.document.location.href = adr_ctr + "Advertise/index";
 				}
 				else
 					alert("잘못된 접근입니다.");
