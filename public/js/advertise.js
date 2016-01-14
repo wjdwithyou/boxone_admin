@@ -15,6 +15,17 @@
 				
 			});
 		});
+		
+		//Back to top
+		$('body').append('<div id="toTop"><i class="fa fa-angle-double-up fa-5x"></i></div>');
+        $("#toTop").bind("click", function () {$("body").animate({ scrollTop: 0 }, 200);});
+		$(window).scroll(function () {
+			if ($(this).scrollTop() != 0) {
+				$('#toTop').fadeIn();
+			} else {
+				$('#toTop').fadeOut();
+			}
+		});   
 	});		
 	
 

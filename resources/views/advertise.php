@@ -5,7 +5,7 @@
 			include ("libraries.php");
 		?>
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-	
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script>
 
@@ -38,10 +38,11 @@
 		  <tr align="center">
 		  	<td class="ad_num" width="50px">No.</td>
 		  	<td class="ad_pc">Location</td>
-		    <td class="ad_board_title" align="left"><span style="cursor:pointer" class="sort">Name</span></td>
+		    <td class="ad_board_title" align="left">Name <span style="cursor:pointer" class="glyphicon glyphicon-triangle-bottom sort"/></td>
 		    <td class="ad_pc">Image</td>
 		    <td class="ad_pc" >Upload time</td>
 		    <td class="ad_pc" >Recent uploader</td>
+		    <td class="ad_num" width="50px">Delate</td>
 		  </tr>
 		  
 		  <?php for($i=1 ; $i < count($adList) ; $i++) :?>      
@@ -49,10 +50,11 @@
                   <tr>
                      <td class="ad_num"><?= $adList[$i]->idx?></td>
                      <td class="ad_pc"><?= $adList[$i]->id?></td>
-                     <td class="ad_board_title" style="font-weight:bold" ><a onclick='adModify(<?=$adList[$i]->idx?>);'><?= $adList[$i]->name?></a></td>
+                     <td class="ad_board_title" style="font-weight:bold" ><a style="cursor:pointer" onclick='adModify(<?=$adList[$i]->idx?>);'><?= $adList[$i]->name?></a></td>
 					 <td class="ad_img"><img width="150px" height="80px" src="<?=$adList[$i]->image?>"/></td>
                      <td class="ad_pc"><?= $adList[$i]->upload?></td>
                      <td class="ad_pc"><?= $adList[$i]->admin_last?></td>
+                     <td class="ad_num"><span style="cursor:pointer">[Del]</span></td>
 
                   </tr>
                   <!-- /광고목록 글 -->
@@ -60,6 +62,8 @@
 		  
 	
 		</table>
+		
+		<i id="toTop" class="fa fa-angle-double-up"> Top</i>
     </div>
 
 
