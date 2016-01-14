@@ -81,7 +81,7 @@
 		      <div class="caption">
 		        <div class="ad_album_title"><a style="cursor:pointer" onclick='adModify(<?=$adList[$i]->idx?>);'><?= (empty($adList[$i]->name))? '&lt;empty&gt;': $adList[$i]->name?></a></div>
 		        <?= $adList[$i]->idx?> - <?= $adList[$i]->id?>
-		        <br><?= $adList[$i]->admin_last?> | <?= $adList[$i]->upload ?> | 
+		        <br><?= $adList[$i]->admin_last?> | <?= substr($adList[$i]->upload,0,-3) ?> | 
 		        <span style="cursor:pointer" onclick='adEmpty(<?=$adList[$i]->idx?>);'>[비우기]</span>
 		      </div>
 		    </div>

@@ -11,12 +11,17 @@
 		$(document).ready(function(){
 		       
 		       if( <?=$idx?> == 0){ 	//새로등록
+		       	
 		       	$(".modify").hide();
+		       	$("#mod_title").hide();
 		       	$(".insert").show();
+		       	$("#new_title").show();
 		       	$(".link").attr("readonly",false);
 		       }
 		       else{					//수정
-		        $(".insert").hide();	
+		        $(".insert").hide();
+		        $("#new_title").hide();
+		        $("#mod_title").show();	
 		       }
 		       
 		       
@@ -51,7 +56,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 		<div id="content">
-		 	<h3 align="center">Modify advertisement</h1>
+		 	<h3 id="mod_title" align="center">Modify advertisement</h3>
+		 	<h3 id="new_title" align="center">New advertisement</h3>
 		 	<form action="<?=$adr_js?><?=$page?>.js" method="post">
 		    	<table align="center">
 				  <tr>
