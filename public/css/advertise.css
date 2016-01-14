@@ -70,6 +70,14 @@
 			.title tr:first-of-type{
 				border-bottom: 1px solid #f15a63;
 			}
+			.update{
+				margin-top: 35px;
+				float: left;
+				font-size: 10px;
+			}
+			button {
+			    cursor: pointer;
+			}
 			.bo_btn {
 				float: right;
 				margin-top: 15px;
@@ -85,6 +93,16 @@
 			    color: #fff;
 			    background-color: #E1E1E1;
 			    border-color: #E1E1E1;
+			}
+			.btn_left {
+			    border-top-right-radius: 0 !important;
+			    border-bottom-right-radius: 0 !important;
+			   /* border-right: 0; */
+			}
+			.btn_right {
+				border-top-left-radius: 0 !important;
+			    border-bottom-left-radius: 0 !important;
+			    margin-left: -4px;
 			}
 			.menu_nav{
 				width: 1025px;
@@ -120,36 +138,52 @@
 				text-align: center;
 				
 			}
+			.row{
+				margin-top: 70px;
+			}
 			
 			
-#toTop
-{
-    z-index:1030;
-	width: 100px;
-	border: 2px solid #f7f7f7;
-	background: #f7f7f7;
-	text-align: center;
-	position: fixed;
-	bottom: 10px;
-	right: 340px;
-	cursor: pointer;
-	display: none;
-	color: #333;
-	opacity: 0.6;
-	filter: alpha(opacity=60);
-	-webkit-border-radius: 30px;
-	-moz-border-radius: 30px;
-	-o-border-radius: 30px;
-	border-radius: 20px;
-	-webkit-transition: all .25s linear;
-	-moz-transition: all .25s linear;
-	-o-transition: all .25s linear;
-	transition: all .25s linear;
-	padding: 5px;
-}
-#toTop:hover
-{
-	background: #b3b3b3;
-	border: 2px solid #b3b3b3;
-} 
+			#toTop
+			{
+			    z-index:1030;
+				width: 100px;
+				border: 2px solid #f7f7f7;
+				background: #f7f7f7;
+				text-align: center;
+				position: fixed;
+				bottom: 10px;
+				right: 340px;
+				cursor: pointer;
+				display: none;
+				color: #333;
+				opacity: 0.6;
+				filter: alpha(opacity=60);
+				-webkit-border-radius: 30px;
+				-moz-border-radius: 30px;
+				-o-border-radius: 30px;
+				border-radius: 20px;
+				-webkit-transition: all .25s linear;
+				-moz-transition: all .25s linear;
+				-o-transition: all .25s linear;
+				transition: all .25s linear;
+				padding: 5px;
+			}
+			#toTop:hover
+			{
+				background: #b3b3b3;
+				border: 2px solid #b3b3b3;
+			} 
+			.img_thumb{
+				height: 200px !important;
+			}
+			.thumbnail{
+				height: 300px;
+				font-size: 11px;
+			}
+			.ad_album_title{
+				font-size: 13px;
+				font-weight: bold;
+				margin: 5px 0px;
+				height: 25px;
+			}
 						

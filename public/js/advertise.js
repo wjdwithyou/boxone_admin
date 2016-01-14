@@ -1,4 +1,5 @@
 	$(document).ready(function(){
+		
   	 	$(".sort").click(function(){
 			table=$("table.title");
 			tr = table.find("tr:gt(0)");
@@ -16,8 +17,22 @@
 			});
 		});
 		
+		$("#btn_albumtype").hide();
+		$("#btn_boardtype").click(function(){
+			$("#btn_albumtype").show();
+			$("#btn_boardtype").hide();
+			$(".type_board").show();
+			$(".type_album").hide();
+		});
+		$("#btn_albumtype").click(function(){
+			$("#btn_albumtype").hide();
+			$("#btn_boardtype").show();
+			$(".type_board").hide();
+			$(".type_album").show();
+		});
+		
 		//Back to top
-		$('body').append('<div id="toTop"><i class="fa fa-angle-double-up fa-5x"></i></div>');
+		$('body').append('<div id="toTop"><i class="fa fa-angle-double-up fa-1x"> Top</i></div>');
         $("#toTop").bind("click", function () {$("body").animate({ scrollTop: 0 }, 200);});
 		$(window).scroll(function () {
 			if ($(this).scrollTop() != 0) {
