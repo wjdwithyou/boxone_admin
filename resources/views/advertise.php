@@ -20,7 +20,7 @@
 	<div class="center">
 	<img class="img_logo" src="<?=$adr_img?>advertise/boxone.png"/>
 	</div>
-	
+		
 	<div class="menu_nav center">
  	<ul class="nav nav-tabs nav-justified">
 	  <li role="presentation" class="active"><a href="#">Advertise</a></li>
@@ -31,9 +31,17 @@
 	</div>	
 
 	<div id="ad_board_wrap" class="cl_b content">
- 	<button type="button" id="btn_write" class="bo_btn" onclick='adModify(0);'>New ad</button>
- 		
- 		
+
+ 	<button type="button" id="btn_write" class="bo_btn btn_right" onclick='adModify(0);'>등록하기</button>
+	<button type="button" id="btn_albumtype" class="bo_btn btn_left">앨범형</button>
+	<button type="button" id="btn_boardtype" class="bo_btn btn_left">게시판형</button>
+	<div class="update">
+	<span>[가나다순]</span>
+	<span>[업데이트순]</span>
+	</div>
+
+    <!-- 게시판형 -->
+ 	<div class="type_board" style="display:none">
        	<table class="title" align="center">
 		  <tr align="center">
 		  	<td class="ad_num" width="50px">No.</td>
@@ -59,12 +67,29 @@
                   </tr>
                   <!-- /광고목록 글 -->
           <?php endfor;?>
-		  
+	  	</table>
+	<!-- /게시판형 -->
+	</div>
+	<!-- 앨범형 -->
+	<div class="type_album">
+		<div class="row">
+		 <?php for($i=1 ; $i < count($adList) ; $i++) :?>      
+
+		  <div class="col-sm-6 col-md-3">
+		    <div class="thumbnail">
+		      <img class="img_thumb" src="<?=$adList[$i]->image?>" alt="...">
+		      <div class="caption">
+		        <div class="ad_album_title"><a style="cursor:pointer" onclick='adModify(<?=$adList[$i]->idx?>);'><?= $adList[$i]->name?></a></div>
+		        <?= $adList[$i]->idx?> - <?= $adList[$i]->id?>
+		        <br><?= $adList[$i]->admin_last?> | <?= $adList[$i]->upload ?> | 
+		        <a href="#">[비우기]</a>
+		      </div>
+		    </div>
+		  </div>
+		  	<?php endfor;?>
+		</div>
+	<!-- /앨범형 -->
 	
-		</table>
-		
-		<i id="toTop" class="fa fa-angle-double-up"> Top</i>
-    </div>
-
-
+  	</div>
+  </div>
 </body>
