@@ -23,8 +23,8 @@
 				padding: 20px;
 			}
 			.ad_board_title {
-			    padding-top: 16px;
-			    padding-bottom: 8px;
+			    padding-top: 30px;
+			    padding-bottom: 30px;
 			    font-size: 12px;
 			    text-align: left;
 			    /*width: 100%;*/
@@ -111,13 +111,45 @@
 				margin-top: 30px;
 				margin-bottom: 30px;
 				width: 240px;
-				height: 60px;
+				
 			}
-			.center{
+			.center{	
 				max-width:1025px;
 				margin-left: auto;
 				margin-right: auto;
 				text-align: center;
 				
 			}
+			
+			
+#toTop
+{
+    z-index:1030;
+	width: 100px;
+	border: 2px solid #f7f7f7;
+	background: #f7f7f7;
+	text-align: center;
+	position: fixed;
+	bottom: 10px;
+	right: 340px;
+	cursor: pointer;
+	display: none;
+	color: #333;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	-o-border-radius: 30px;
+	border-radius: 20px;
+	-webkit-transition: all .25s linear;
+	-moz-transition: all .25s linear;
+	-o-transition: all .25s linear;
+	transition: all .25s linear;
+	padding: 5px;
+}
+#toTop:hover
+{
+	background: #b3b3b3;
+	border: 2px solid #b3b3b3;
+} 
 						
