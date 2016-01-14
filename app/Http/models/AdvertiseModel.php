@@ -15,7 +15,7 @@ class AdvertiseModel{
 			&& inputErrorCheck($alt, 'alt')))
 			return;
 		
-		// id redunduncy check?
+		// need id redunduncy check?
 		
 		$result_f = DB::table('advertise')->insertGetID(
 				array(	'admin_last' => $admin_last,
@@ -93,10 +93,11 @@ class AdvertiseModel{
 			$ext = $image->getClientOriginalExtension();	// 파일 확장자 얻어오기
 			
 			$img_name = $idx."_".$time[0]->upload.".".$ext;
-			
 			$img_adr = $s3AdvAdr.$img_name;
 			
 			$result_s = DB::update('update advertise set image=? where idx=?', array($img_adr, $idx));
+			
+			
 			
 			$result = ($result_f && $result_s)? true: false;
 			
@@ -128,6 +129,36 @@ class AdvertiseModel{
 	}
 	*/
 	
+	function setEmpty($admin_last, $idx){	// not delete
+											// just delete image, website_link, name, alt (+id?)
+		if (!(inputErrorCheck($admin_last, 'admin_last')
+			&& inputErrorCheck($idx, 'idx')))
+			return;
+		
+		$result = DB::update("update advertise set admin_last=?, name='', website_link='', image='', alt='', upload=now() where idx=?",
+				array($admin_last, $idx));
+		
+		// delete before image from s3
+		$s3 = AWS::createClient('s3');
+		
+		$target = $s3->getIterator('ListObjects', array(
+				'Bucket'	=> 'boxone-image',
+				'Prefix'	=> 'advertise/'.$idx.'_'
+		));
+		
+		foreach ($target as $i){
+			$s3->deleteObject(array(
+					'Bucket'	=> 'boxone-image',
+					'Key'		=> $i['Key']		// check
+			));
+		}
+		
+		if ($result == true)
+			return array('code' => 1, 'msg' => 'set empty success', 'data' => $result);
+		else
+			return array('code' => 0, 'msg' => 'set empty failure');
+	}
+	
 	function getAdvertiseAll(){
 		$result = DB::select('select idx, id, name, image, upload, admin_last from advertise');
 		
@@ -135,6 +166,8 @@ class AdvertiseModel{
 	}
 	
 	function getAdvertiseByIdx($idx){
+		// need input check?
+		
 		$result = DB::select('select id, image, website_link, name, alt, upload, admin_last from advertise where idx=?', array($idx));
 		
 		return array('code' => 1, 'msg' => 'success', 'data' => $result);

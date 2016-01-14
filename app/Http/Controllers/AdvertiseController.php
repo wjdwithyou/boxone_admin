@@ -28,6 +28,7 @@ class AdvertiseController extends Controller{
 		return view($page, array('page' => $page, 'adList' => $adList['data']));
 	}
 	
+	/*
 	public function indexNew(){
 		if (session_id() == '')
 			session_start();
@@ -41,6 +42,7 @@ class AdvertiseController extends Controller{
 		$page = 'advertise_new';
 		return view($page, array('page' => $page));
 	}
+	*/
 	
 	public function indexModify(){
 		if (session_id() == '')
@@ -144,5 +146,25 @@ class AdvertiseController extends Controller{
 			header('Content-Type: application/json');
 			echo json_encode($result);
 		}
+	}
+	
+	public function setEmpty(){
+		if (session_id() == '')
+			session_start();
+		
+		if (!isset($_SESSION['idx'])){
+			echo ("no session");
+			return;
+		}
+		//echo ($_SESSION['id']);
+		
+		$adModel = new AdvertiseModel();
+		$idx = Request::input('idx');
+		
+		$admin_last = $_SESSION['id'];
+		$result = $adModel->setEmpty($admin_last, $idx);
+		
+		header('Content-Type: application/json');
+		echo json_encode($result);
 	}
 }
