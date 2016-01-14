@@ -22,8 +22,8 @@ class LoginController extends Controller{
 		$result = $mbModel->login($id, $pw);	// if you use create() instead of login(), you can make admin account.
 		
 		if ($result['code'] == 0){
-			echo ("error: LoginController::login()");
-			return;
+			header('Content-Type: application/json');
+			echo json_encode($result);
 		}
 		else{
 			if (session_id() == '')
