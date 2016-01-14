@@ -158,6 +158,7 @@ class AdvertiseController extends Controller{
 		}
 		//echo ($_SESSION['id']);
 		
+		$adModel = new AdvertiseModel();
 		$idx = Request::input('idx');
 		
 		$admin_last = $_SESSION['id'];

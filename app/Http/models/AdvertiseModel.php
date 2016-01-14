@@ -135,8 +135,8 @@ class AdvertiseModel{
 			&& inputErrorCheck($idx, 'idx')))
 			return;
 		
-		$result = DB::update('update advertise set admin_last=? name=?, website_link=?, image=?, alt=?, upload=now() where idx=?',
-				array($admin_last, '', '', '', '', $idx));
+		$result = DB::update("update advertise set admin_last=?, name='', website_link='', image='', alt='', upload=now() where idx=?",
+				array($admin_last, $idx));
 		
 		// delete before image from s3
 		$s3 = AWS::createClient('s3');

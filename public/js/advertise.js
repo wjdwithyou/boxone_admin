@@ -38,5 +38,37 @@ function adModify(ad_idx){
 		location.href = adr_ctr + "Login/index";
 	}
 	
-	location.href = adr_ctr+"Advertise/indexModify?idx="+ad_idx;
+	location.href = adr_ctr + "Advertise/indexModify?idx=" + ad_idx;
+}
+
+function adEmpty(idx){
+	// login check?
+	var adr_ctr = $("#adr_ctr").val();
+	
+	// Check really want truncate ad?
+	
+	$.ajax({
+		url: adr_ctr + "Advertise/setEmpty",
+		type: 'post',
+		async: false,
+		timeout: 10000,
+		data:{
+			idx: idx
+		},
+		success: function(result){
+			// alert(JSON.stringify(result));
+			result = JSON.parse(result);
+			
+			if (result.code == 1){
+				alert ("삭제되었습니다.");
+				location.href = adr_ctr + "Advertise/index";
+			}
+			else
+				alert("잘못된 접근입니다.");
+		},
+		error: function(request, status, error){
+			console.log(request.responseText);
+			alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		}
+	});
 }
