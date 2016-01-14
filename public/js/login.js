@@ -30,8 +30,9 @@ function justLogin(){
 				alert("로그인되었습니다.");
 				location.href = adr_ctr + "Advertise/index";
 			}
-			else
+			else{
 				alert("잘못된 정보를 입력하셨습니다.");
+			}
 		},
 		error: function(request, status, error, result){
 			//console.log(request.responseText);
