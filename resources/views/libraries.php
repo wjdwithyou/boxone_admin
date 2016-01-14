@@ -19,6 +19,15 @@
 	$adr_btstrp = "http://166.104.125.62:8000/bootstrap/";
 	$adr_ctr = "http://166.104.125.62:8000/";
 	*/
+
+	// test server
+	$adr_js = "http://platformstory.iptime.org:8091/js/";
+	$adr_css = "http://platformstory.iptime.org:8091/css/";
+	$adr_img = "https://s3-ap-northeast-1.amazonaws.com/boxone-image/";
+	$adr_btstrp = "http://platformstory.iptime.org:8091/bootstrap/";
+	$adr_ctr = "http://platformstory.iptime.org:8091/";
+
+	// local
 	$adr_js = "http://localhost:8000/js/";
 	$adr_css = "http://localhost:8000/css/";
 	$adr_img = "https://s3-ap-northeast-1.amazonaws.com/boxone-image/";

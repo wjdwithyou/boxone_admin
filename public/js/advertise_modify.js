@@ -374,7 +374,7 @@ function checkNameId(i){
 	}
 }
 
-function chechLink(i){
+function checkLink(i){
 	var id = $(i).val();
 	
 	if (id.length > 250){
