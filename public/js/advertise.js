@@ -1,6 +1,6 @@
 	$(document).ready(function(){
 		
-  	 	$(".sort").click(function(){
+  	 	$(".sort_abc").click(function(){
 			table=$("table.title");
 			tr = table.find("tr:gt(0)");
 			tr.sort(function(a, b) {
@@ -9,6 +9,22 @@
 			        var keyB = $('td:eq(2)',b).text().toLowerCase();
 			
 			        return (keyA > keyB) ? 1 : 0;
+			        });
+			
+			tr.each(function(){$(this).appendTo(table);
+		
+				
+			});
+		});
+		$(".sort_update").click(function(){
+			table=$("table.title");
+			tr = table.find("tr:gt(0)");
+			tr.sort(function(a, b) {
+			
+			        var keyA = $('td:eq(4)',a).text().toLowerCase();
+			        var keyB = $('td:eq(4)',b).text().toLowerCase();
+			
+			        return (keyA > keyB) ? 0 : 1;
 			        });
 			
 			tr.each(function(){$(this).appendTo(table);

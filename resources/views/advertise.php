@@ -36,8 +36,8 @@
 	<button type="button" id="btn_albumtype" class="bo_btn btn_left">앨범형</button>
 	<button type="button" id="btn_boardtype" class="bo_btn btn_left">게시판형</button>
 	<div class="update">
-	<span>[가나다순]</span>
-	<span>[업데이트순]</span>
+	<span style="cursor:pointer" class="sort_abc">[가나다순]</span>
+	<span style="cursor:pointer" class="sort_update">[업데이트순]</span>
 	</div>
 
     <!-- 게시판형 -->
@@ -46,7 +46,7 @@
 		  <tr align="center">
 		  	<td class="ad_num" width="50px">No.</td>
 		  	<td class="ad_pc">Location</td>
-		    <td class="ad_board_title" align="left">Name <span style="cursor:pointer" class="glyphicon glyphicon-triangle-bottom sort"/></td>
+		    <td class="ad_board_title" align="left">Name</td>
 		    <td class="ad_pc">Image</td>
 		    <td class="ad_pc" >Upload time</td>
 		    <td class="ad_pc" >Recent uploader</td>
@@ -82,7 +82,7 @@
 		        <div class="ad_album_title"><a style="cursor:pointer" onclick='adModify(<?=$adList[$i]->idx?>);'><?= $adList[$i]->name?></a></div>
 		        <?= $adList[$i]->idx?> - <?= $adList[$i]->id?>
 		        <br><?= $adList[$i]->admin_last?> | <?= $adList[$i]->upload ?> | 
-		        <a href="#">[비우기]</a>
+		        <span style="cursor:pointer" onclick='adEmpty(<?=$adList[$i]->idx?>);'>[비우기]</span>
 		      </div>
 		    </div>
 		  </div>
