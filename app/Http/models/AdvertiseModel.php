@@ -69,22 +69,26 @@ class AdvertiseModel{
 			
 			$time = DB::select('select upload from advertise where idx=?', array($idx));
 			
-			// test start
+			
+			
+			// delete before image from s3
+			$s3 = AWS::createClient('s3');
+			
+			$before = $s3->getIterator('ListObjects', array(
+					'Bucket'	=> 'boxone-image',
+					'Prefix'	=> 'advertise/'.$idx.'_'
+			));
+			
+			foreach ($before as $i){
+				$s3->deleteObject(array(
+						'Bucket'	=> 'boxone-image',
+						'Key'		=> $i['Key']		// check
+				));
+			}
 			
 			
 			
-			
-			// impl.
-			
-			
-			
-			
-			
-			// test end
-			
-			
-			
-			
+			// add new image to s3
 			$s3AdvAdr = "https://s3-ap-northeast-1.amazonaws.com/boxone-image/advertise/";
 			$ext = $image->getClientOriginalExtension();	// 파일 확장자 얻어오기
 			
