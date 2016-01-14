@@ -79,7 +79,7 @@
 		    <div class="thumbnail">
 		      <img class="img_thumb" src="<?=$adList[$i]->image?>" alt="...">
 		      <div class="caption">
-		        <div class="ad_album_title"><a style="cursor:pointer" onclick='adModify(<?=$adList[$i]->idx?>);'><?= $adList[$i]->name?></a></div>
+		        <div class="ad_album_title"><a style="cursor:pointer" onclick='adModify(<?=$adList[$i]->idx?>);'><?= (empty($adList[$i]->name))? '&lt;empty&gt;': $adList[$i]->name?></a></div>
 		        <?= $adList[$i]->idx?> - <?= $adList[$i]->id?>
 		        <br><?= $adList[$i]->admin_last?> | <?= $adList[$i]->upload ?> | 
 		        <span style="cursor:pointer" onclick='adEmpty(<?=$adList[$i]->idx?>);'>[비우기]</span>
