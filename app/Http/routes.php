@@ -19,7 +19,7 @@ Route::get('/', function () {
 */
 
 Route::get('/', 'LoginController@index');
-//Route::get('/', 'AdvertiseController@index');
+//Route::get('/', 'TestController@');
 Route::any('{ctr}/{fnc}', Request::segment(1)."Controller@".Request::segment(2));
 
 /*

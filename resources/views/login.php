@@ -129,7 +129,7 @@
 	</div>
 	
 
-	<!--script>	// Mouse Pointer
+	<script>	// Mouse Pointer
 		var MAX_PARTICLE = 100;
 		var interval = 2.5; // 반영속도
 		var circle_arr = new Array(MAX_PARTICLE);
@@ -189,6 +189,6 @@
 			circle_arr[0].x = window.event.clientX;
 			circle_arr[0].y = window.event.clientY;
 		}
-	</script-->
+	</script>
 
 </body>
