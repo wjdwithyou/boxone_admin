@@ -40,3 +40,23 @@ function justLogin(){
 		}
 	});
 }
+
+function logout()
+{
+	var adr_ctr = $("#adr_ctr").val();
+	$.ajax
+	({
+		url: adr_ctr+'Login/logout',
+		type: 'post',
+		async: false,
+		success: function(result)
+		{
+			alert ("안녕히가세요 빠빠");
+			location.href = adr_ctr;
+		},	
+		error:function(request,status,error)
+		{
+		    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		}
+	});
+}

@@ -13,7 +13,7 @@ class AdvertiseController extends Controller{
 			echo ("no session");
 			return;
 		}
-		//echo ($_SESSION['id']);
+		$log_id=$_SESSION['id'];
 		
 		$adModel = new AdvertiseModel();
 		
@@ -25,7 +25,7 @@ class AdvertiseController extends Controller{
 		//return;
 		
 		$page = 'advertise';
-		return view($page, array('page' => $page, 'adList' => $adList['data']));
+		return view($page, array('page' => $page, 'log_id' => $log_id , 'adList' => $adList['data']));
 	}
 	
 	/*

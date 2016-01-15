@@ -7,6 +7,8 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="<?=$adr_js?>login.js"></script>
+
 	<script>
 
 	</script>
@@ -15,6 +17,19 @@
 	</head>
 
 <body>
+	<div class="inner">
+		<div id="header_top_wrap">
+			<div class="f_l">
+				BOXONE 관리자페이지
+			</div>
+			<div class="f_r">
+				<div>
+				<img class="img_24 br_50" src="<?=$adr_img?>profile_image.png" id="header_profile">
+				<?= $log_id?>님 | <span style="cursor: pointer" onclick='logout();'>로그아웃</span>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<hr class="header_hr2"></hr>
 	<div class="center">

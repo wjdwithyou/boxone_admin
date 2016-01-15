@@ -121,6 +121,7 @@
 			}
 			.inner {
 			    max-width: 1024px;
+			    height: 16px;
 			    margin: 0 auto;
 			    padding-left: 8px;
 			    padding-right: 8px;
@@ -194,4 +195,26 @@
 			    margin-bottom: 4px;
 			    font-size: 9px;
 			}
-							
+			#header_top_wrap {
+			    position: relative;
+			    margin-top: 8px;
+			    font-size: 11px;
+			}
+			#header_profile {
+			    position: absolute;
+			    top: -4px;
+			    right: 108px;
+			}
+			.f_l {
+			    float: left;
+			}
+			.f_r {
+			    float: right;
+			}
+			.img_24 {
+			    width: 24px;
+			    height: 24px;
+			}
+			.br_50 {
+			    border-radius: 50%;
+			}						

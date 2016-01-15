@@ -49,4 +49,16 @@ class LoginController extends Controller{
 		echo json_encode($result);
 		*/
 	}
+	public function logout()
+	{
+		if (session_id() == '')
+		{
+			session_start();
+			session_destroy();
+		}
+		
+		if (isset($_COOKIE[session_name()]))
+			setcookie(session_name(), '', time()-42000, '/');
+	}
+	
 }
