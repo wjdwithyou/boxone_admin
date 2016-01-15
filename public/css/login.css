@@ -1,8 +1,9 @@
 	.content{
 		max-width: 400px;
 		width: 400px;
-		margin: 0 auto;
-		padding-top: 10%;
+		margin: 200px auto;
+		
+		 /*padding-top: 10%; */
 	}
 	td, tr {
 		
@@ -24,4 +25,15 @@
 	}
 	label{
 		margin-bottom: 0px !important;
+	}
+	.img_log{
+		width: 80px;
+		margin: 20px 0px;
+		
+	}
+	table{
+		margin: 0px 10px 10px 10px;
+	}
+	h3{
+		letter-spacing: 5px;
 	}

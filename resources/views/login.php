@@ -104,7 +104,11 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
+
 	<div class="content">
+		<div class="thumbnail">
+			<img class="img_log" src="<?=$adr_img?>advertise/boxone_logo.png">
+			<h3 align="center">ADMIN PAGE</h3><br>
 		<table>
 			<tr>
 				<td class="title"><label for="id" class="control-label" >ID</label></td>
@@ -122,8 +126,10 @@
 				<td rowspan="2"> <input type="checkbox" id="idSaveCheck">  Remember me </td>
 			</tr>
 		</table>
+		</div>
 	</div>
 	
+
 	<!--script>	// Mouse Pointer
 		var MAX_PARTICLE = 100;
 		var interval = 2.5; // 반영속도
@@ -190,4 +196,5 @@
 			console.log("y:" + particle_arr[0].y);
 		}
 	</script-->
+
 </body>

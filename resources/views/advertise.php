@@ -60,7 +60,7 @@
                      <td class="ad_pc"><?=$adList[$i]->id?></td>
                      <td class="ad_board_title" style="font-weight:bold" ><a style="cursor:pointer" onclick='adModify(<?=$adList[$i]->idx?>);'><?= (empty($adList[$i]->name))? '&lt;empty&gt;': $adList[$i]->name?></a></td>
 					 <td class="ad_img"><img width="150px" height="80px" src="<?=$adList[$i]->image?>"/></td>
-                     <td class="ad_pc"><?= $adList[$i]->upload?></td>
+                     <td class="ad_pc"><?= substr($adList[$i]->upload,0,-3) ?></td>
                      <td class="ad_pc"><?= $adList[$i]->admin_last?></td>
                      <td class="ad_num"><span style="cursor:pointer" onclick='adEmpty(<?=$adList[$i]->idx?>);'>[Del]</span></td>
 
