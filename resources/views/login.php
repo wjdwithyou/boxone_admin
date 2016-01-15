@@ -100,6 +100,7 @@
 		POWERMODE.colorful = true;
 		document.body.addEventListener('input', POWERMODE);
 	</script>
+	
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -132,62 +133,67 @@
 	<script>	// Mouse Pointer
 		var MAX_PARTICLE = 100;
 		var interval = 2.5; // 반영속도
-		var circle_arr = new Array(MAX_PARTICLE);
+		var particle_arr = new Array(MAX_PARTICLE);
 		var dest_element = document.body;
 
 		for (var i = 0; i < MAX_PARTICLE; ++i){
-			circle_arr[i] = document.createElement('div'); // 각각 div 생성
-			dest_element.appendChild(circle_arr[i]); // 상속(표현)
+			particle_arr[i] = document.createElement('div'); // 각각 div 생성
+			dest_element.appendChild(particle_arr[i]); // 상속(표현)
 			
-			circle_arr[i].innerHTML = "★"; // 모양
-			circle_arr[i].x = 950; // 위치
-			circle_arr[i].y = 1300;
-			circle_arr[i].dx = 0; // 속도
-			circle_arr[i].dy = 0;
-			circle_arr[i].ax = 0; // 가속도
-			circle_arr[i].ay = 0;
-			circle_arr[i].style.fontsize = 5000 / (i + 100); // 크기
-			circle_arr[i].style.color = "rgb(" + i*2.55 + ", 255, 191)"; // 색
-			circle_arr[i].style.position = "absolute";
+			particle_arr[i].innerHTML = "★"; // 모양
+			particle_arr[i].x = 475; // 위치
+			particle_arr[i].y = 650;
+			particle_arr[i].dx = 0; // 속도
+			particle_arr[i].dy = 0;
+			particle_arr[i].ax = 0; // 가속도
+			particle_arr[i].ay = 0;
+			particle_arr[i].style.fontsize = Math.floor(5000 / (i + 100)); // 크기
+			particle_arr[i].style.color = "rgb(" + Math.floor(i * 2.55) + ", 255, 191)"; // 색
+			particle_arr[i].style.position = "absolute";
 		}
+
+		//console.log((JSON.stringify(particle_arr[99].style)));
  
 		setInterval("draw()", 1);
  
 		function draw(){
 			calculate();
-
+			
 			for (var i = 0; i < MAX_PARTICLE; ++i){
-				circle_arr[i].style.left = circle_arr[i].x;
-				circle_arr[i].style.top = circle_arr[i].y;
+				particle_arr[i].style.left = particle_arr[i].x;
+				particle_arr[i].style.top = particle_arr[i].y;
 			}
 		}
  
 		function calculate(){
-			circle_arr[0].ax = (Math.random() - 0.5) * 0.1; // -0.05 ~ 0.05
-			circle_arr[0].ay = (Math.random() - 0.5) * 0.1; // -0.05 ~ 0.05
-			circle_arr[0].dx += circle_arr[0].ax * interval; // 속도계산(가속도적분)
-			circle_arr[0].dy += circle_arr[0].ay * interval;
-			circle_arr[0].x += circle_arr[0].dx * interval; // 위치계산(속도적분)
-			circle_arr[0].y += circle_arr[0].dy * interval;
+			particle_arr[0].ax = (Math.random() - 0.5) * 0.1; // -0.05 ~ 0.05
+			particle_arr[0].ay = (Math.random() - 0.5) * 0.1; // -0.05 ~ 0.05
+			particle_arr[0].dx += particle_arr[0].ax * interval; // 속도계산(가속도적분)
+			particle_arr[0].dy += particle_arr[0].ay * interval;
+			particle_arr[0].x += particle_arr[0].dx * interval; // 위치계산(속도적분)
+			particle_arr[0].y += particle_arr[0].dy * interval;
  
-			if (circle_arr[0].x < 0 || circle_arr[0].x > 1900)
-				circle_arr[0].dx = -circle_arr[0].dx;
-			if (circle_arr[0].y < 0 || circle_arr[0].y > 2600)
-				circle_arr[0].dy = -circle_arr[0].dy;
+			if (particle_arr[0].x < 0 || particle_arr[0].x > 1900)
+				particle_arr[0].dx = -particle_arr[0].dx;
+			if (particle_arr[0].y < 0 || particle_arr[0].y > 2600)
+				particle_arr[0].dy = -particle_arr[0].dy;
 
 			for (var i = 1; i < MAX_PARTICLE; ++i){
-				circle_arr[i].ax = ((circle_arr[i-1].x - circle_arr[i].x) / (750 - i / 50) * 70) - circle_arr[i].dx * interval / 8; // 가속도계산(탄성력/질량 - 저항력)
-				circle_arr[i].ay = ((circle_arr[i-1].y - circle_arr[i].y) / (750 - i / 50) * 70) - circle_arr[i].dy * interval / 8;
-				circle_arr[i].dx += circle_arr[i].ax * interval; // 속도계산(가속도적분)
-				circle_arr[i].dy += circle_arr[i].ay * interval;
-				circle_arr[i].x += circle_arr[i].dx * interval; // 위치계산(속도적분)
-				circle_arr[i].y += circle_arr[i].dy * interval;
+				particle_arr[i].ax = ((particle_arr[i-1].x - particle_arr[i].x) / (750 - i / 50) * 70) - particle_arr[i].dx * interval / 8; // 가속도계산(탄성력/질량 - 저항력)
+				particle_arr[i].ay = ((particle_arr[i-1].y - particle_arr[i].y) / (750 - i / 50) * 70) - particle_arr[i].dy * interval / 8;
+				particle_arr[i].dx += particle_arr[i].ax * interval; // 속도계산(가속도적분)
+				particle_arr[i].dy += particle_arr[i].ay * interval;
+				particle_arr[i].x += particle_arr[i].dx * interval; // 위치계산(속도적분)
+				particle_arr[i].y += particle_arr[i].dy * interval;
 			}
 		}
  
 		document.onmousemove = function(){
-			circle_arr[0].x = window.event.clientX;
-			circle_arr[0].y = window.event.clientY;
+			particle_arr[0].x = window.event.clientX;
+			particle_arr[0].y = window.event.clientY;
+
+			console.log("x:" + particle_arr[0].x);
+			console.log("y:" + particle_arr[0].y);
 		}
 	</script>
 
