@@ -128,7 +128,7 @@
 			}
 			.img_logo{
 				margin-top: 30px;
-				margin-bottom: 30px;
+				margin-bottom: 40px;
 				width: 240px;
 				
 			}
@@ -195,26 +195,4 @@
 			    margin-bottom: 4px;
 			    font-size: 9px;
 			}
-			#header_top_wrap {
-			    position: relative;
-			    margin-top: 8px;
-			    font-size: 11px;
-			}
-			#header_profile {
-			    position: absolute;
-			    top: -4px;
-			    right: 108px;
-			}
-			.f_l {
-			    float: left;
-			}
-			.f_r {
-			    float: right;
-			}
-			.img_24 {
-			    width: 24px;
-			    height: 24px;
-			}
-			.br_50 {
-			    border-radius: 50%;
-			}						
+		

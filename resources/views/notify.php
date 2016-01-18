@@ -13,8 +13,8 @@
 	</style>
 </head>
 <body>
-
-<hr class="header_hr2"></hr>
+<?php include("header.php"); ?>
+	<hr class="header_hr2"></hr>
 
 	<div class="center">
 	<img class="img_logo" src="<?=$adr_img?>advertise/boxone.png"/>
@@ -81,7 +81,20 @@
 						</td>
 					</tr>
 					<tr class="reply_show">
-						<td class="reply_content"><?=$noList[$i]->contents?></td>
+						<td class="reply_content">
+							<span class="ori_content"><?=$noList[$i]->contents?></span>
+							<div hidden class="mod_content"><textarea id="reply_write_content" class="form-control" maxlength="300" rows="4"><?=$noList[$i]->contents?></textarea></div></td>
+					</tr>
+					<tr>
+						<td>
+							<?php if ($noList[$i]->nickname == $_SESSION['id']) :?>
+							<div class="f_r bo_color reply_a reply_rm">
+								<a class="reply_show" onclick="noModify($(this),<?=$noList[$i]->idx?>);">수정</a>
+								<a class="reply_show reply_del_show" onclick="noDelete(<?=$noList[$i]->idx?>);">삭제</a>
+								<a class="reply_modify_show" onclick="clearModify($(this));" hidden>취소</a>
+							</div>
+							<?php endif;?>
+						</td>
 					</tr>	
 
 				</table>

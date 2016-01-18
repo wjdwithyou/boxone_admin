@@ -27,5 +27,22 @@ class NotifyModel{
 		
 		return array('code' => 1, 'msg' => 'success', 'data' => $result);
 	}
-	
+	function delNotify($idx){
+		
+		$result = DB::delete('delete from admin_community where idx=?', array($idx));
+		
+		return array('code' => 1, 'msg' => 'success', 'data' => $result);
+	}
+	function modNotify($idx, $contents){
+		if (!(inputErrorCheck($idx, 'idx')
+			&& inputErrorCheck($contents, 'contents')))
+			return;
+			
+		$result = DB::update('update admin_community set contents=?, upload=now() where idx=?',
+					array($contents, $idx));
+		if ($result == true)
+			return array('code' => 1, 'msg' => 'update success', 'data' => $result);
+		else
+			return array('code' => 0, 'msg' => 'update failure');	
+	}
 }

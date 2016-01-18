@@ -38,5 +38,44 @@ class NotifyController extends Controller{
 		//return view($page, array('page' => $page, 'num' => $num));
 
 	}
+	public function delNotify(){
+		if (session_id() == '')
+			session_start();
+		
+		if (!isset($_SESSION['idx'])){
+			echo ("no session");
+			return;
+		}
+		
+		$noModel = new NotifyModel();
+		$idx = Request::input('idx');
+		
+		$result = $noModel->delNOtify($idx);
+		
+		header('Content-Type: application/json');
+		echo json_encode($result);
+	}
+	
+	public function modNotify(){
+		if (session_id() == '')
+			session_start();
+		
+		if (!isset($_SESSION['idx'])){
+			echo ("no session");
+			return;
+		}
+		
+		$noModel = new NotifyModel(); 	
+			
+		$idx = Request::input('idx');
+		$contents = Request::input('contents');
+		
+		$result = $noModel->modNotify($idx, $contents);
+		
+		header('Content-Type: application/json');
+		echo json_encode($result);
+		
+		
+	}
 }
 	

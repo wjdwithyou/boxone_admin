@@ -17,19 +17,7 @@
 	</head>
 
 <body>
-	<div class="inner">
-		<div id="header_top_wrap">
-			<div class="f_l">
-				BOXONE 관리자페이지
-			</div>
-			<div class="f_r">
-				<div>
-				<img class="img_24 br_50" src="<?=$adr_img?>profile_image.png" id="header_profile">
-				<?= $log_id?>님 | <span style="cursor: pointer" onclick='logout();'>로그아웃</span>
-				</div>
-			</div>
-		</div>
-	</div>
+<?= include("header.php"); ?>
 
 	<hr class="header_hr2"></hr>
 	<div class="center">
