@@ -7,7 +7,13 @@
 		?>
 
 	<link rel="stylesheet" type="text/css" href="mystyle.css">
-	
+	<script>
+	$(document).ready(function(){
+    $("button").click(function(){
+        $("#test").load("<?= $adr_ctr ?>Product/insertProd");
+    });
+    </script>
+});
 </head>
 <body>
 	
@@ -28,7 +34,7 @@
 	</div>
 	
 	
-	<div class="center">
+	<div id="test" class="center">
 		<a href="<?= $adr_ctr ?>Product/insertProd" target="_self"><button>update</button></a>
 	</div>
 
