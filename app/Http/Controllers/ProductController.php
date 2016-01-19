@@ -4,10 +4,11 @@ use App\Http\Controllers\Controller;
 use DB;
 
 class ProductController extends Controller {
-	public function index(){
+	public function product(){
 		$page = 'productupdate';
 		return view($page, array('page' => $page));
 	}
+	
 	public function insertProd()
 	{
 		ob_start();

@@ -25,7 +25,7 @@
 	  <li role="presentation" ><a href="<?= $adr_ctr ?>Advertise/index">Advertise</a></li>
 	  <li role="presentation" class="active"><a href="#">Notify</a></li>
 	  <li role="presentation"><a href="<?= $adr_ctr ?>Member/member">Member</a></li>
-	  <li role="presentation"><a href="<?= $adr_ctr ?>Product/index">Product update</a></li>
+	  <li role="presentation"><a href="<?= $adr_ctr ?>Product/product">Product update</a></li>
 	</ul>
 	</div>	
 	
