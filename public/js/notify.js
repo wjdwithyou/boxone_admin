@@ -75,15 +75,17 @@ function noModify(e, idx){
 	else{
 		alert("수정!");
 		var adr_ctr = $("#adr_ctr").val();
-		var contents = $("#reply_write_content").val();
+		var contents = e.closest("table").find("#reply_write_content").val();
+		alert(idx);
+		alert(contents);
 		
 		$.ajax({
 			url: adr_ctr + 'Notify/modNotify',
 			type: 'post',
 			async: false,
 			data: {
-				contents: contents,
-				idx: idx
+				idx: idx,
+				contents: contents				
 			},
 			success: function(result){
 				alert (JSON.stringify(result));

@@ -11,19 +11,29 @@
 	}
 	.notify_wrap{
 		max-width: 1025px;
-		
-		margin: 10px auto;
+		margin-left: auto;
+		margin-right: auto;
 	}
 	.header_hr2 {
 	    margin-top: 8px;
 	    margin-bottom: 16px;
 	    border-top: 1px solid #ddd;
 	}
+	.header_hr3 {
+	    margin-top: 0px;
+	    margin-bottom: 16px;
+	    border-top: 1px solid #ddd;
+	}
+	
+	
 	.img_logo{
 		margin-top: 30px;
 		margin-bottom: 40px;
 		width: 240px;
 		
+	}
+	.bgcolor{
+		background-color: #f8f7f7;
 	}
 	.center{	
 		max-width:1025px;
@@ -37,7 +47,7 @@
 	margin-bottom: 0;
 	}
 	#reply_input_wrap {
-	padding: 16px 8px;
+	padding: 0x 8px 0px 8px;
 	margin-top: 16px;
 	background-color: #fff;
 	}
@@ -51,11 +61,11 @@
 	}
 	.reply_profile img{
 	width: 64px ;
-	padding-right: 8px;
 	}
 	.reply_profile {
-	width: 64px ;
+	width: 73px ;
 	vertical-align: top;
+	margin-right: 13px;
 	}
 	.reply_modify_show textarea {
 	margin-bottom: 16px;
@@ -67,13 +77,17 @@
 	color: #686666;
 	font-weight: bold;
 	}
+	.margin_left{
+		margin-left: 10px;
+	}
 	.reply_title img {
 		width: 14px;
 		height: 14px;
 	}
 	.reply_profile img {
-		width: 100%;
+		width: 56px;
 	    height: 56px;
+	    
 	    border-radius: 50% !important;
 	}
 	.reply_writer {
@@ -93,6 +107,7 @@
 	}
 	.input_textarea2 {
 		padding-right: 94px;
+		padding-left: 1px;
 	}
 	.input_textarea2 button {
 		position: absolute;
@@ -122,16 +137,18 @@
     font-size: 9px;
 	}
 	.f_r {
-	float: 
+	float: right;
+	}
+	.f_r {
+	float: left;
+	} 
 	.bo_color {
 		color: #8c8b8b;
 	}
 	.reply_a {
 		font-size: 10px;
 		text-decoration: underline;
-		margin-bottom: 16px;
+		margin-top: 16px;
 
 	}
-	.reply_rm a {
-		margin-left: 8px;
-	}
+

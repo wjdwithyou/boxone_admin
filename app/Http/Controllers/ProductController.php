@@ -4,92 +4,114 @@ use App\Http\Controllers\Controller;
 use DB;
 
 class ProductController extends Controller {
-
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
-
-	public function index()
-	{
-		$page = 'product';
+	public function index(){
+		$page = 'productupdate';
 		return view($page, array('page' => $page));
 	}
-	
 	public function insertProd()
 	{
-		$conn = mssql_connect('cafe24', 'cstourplatform', 'q1w2e3r4!@cosmos99');
-		
-		if ($conn)
+		ob_start();
+		ob_end_clean();
+		$this->printMsg('상품 데이터 입력 시작<br>');
+
+		$currency = 1211.20;
+
+		// 테이블 목록 가져오기
+		$tableInfo = DB::connection('sqlsrv')->select("SELECT Distinct TABLE_NAME FROM information_schema.TABLES WHERE TABLE_NAME like 'cgProdMain_%'");
+		$cnt_prdtIns = $cnt_prdtUpd = $cnt_hotIns = $cnt_hotUpd = $cnt = 0;
+
+		foreach($tableInfo as $tableList)
 		{
-			echo "Connection established.\n";
-		
-			$query1 = mssql_query("SELECT Distinct TABLE_NAME FROM information_schema.TABLES WHERE TABLE_NAME like 'cgProdMain_%'");
-			$i = 0;
-			$j = 0;
-			while ($data1 = mssql_fetch_array($query1))
+			// mssql에서 상품 목록 가져오기
+			$table = $tableList->TABLE_NAME;			
+			$tablePrice = 'cgPrice'.substr($table, 6);
+			$prdtInfo = DB::connection('sqlsrv')->select("SELECT * FROM $table");
+
+			$this->printMsg($table.'에서 총 '.count($prdtInfo).'개의 상품이 검색되었습니다.');
+
+			foreach($prdtInfo as $prdtList)
 			{
-				$table = $data1['TABLE_NAME'];
-				$query2 = mssql_query("SELECT ProdInc, MallKind, MallID, Ccode3, Brand, PnameD, Lprice, PimgD FROM $table");
-				while ($data2 = mssql_fetch_array($query2))
+				// 할인이 없을 시 product 테이블에
+				if ($prdtList->Lprice == $prdtList->Sprice)
 				{
-					$cnt = DB::select("SELECT count(*) as cnt FROM product WHERE prod_id = ".$data2['ProdInc']);
+					// 해당 정보가 없으면 isnert, 있으면 update
+					$cnt = DB::connection('mysql')->select("SELECT count(*) as cnt FROM product WHERE prod_id = ?", array($prdtList->ProdInc));
 					if ($cnt[0]->cnt == 0)
-					{ 
-						$result = DB::table('product')->insertGetId(
+					{
+						$result = DB::connection('mysql')->delete("DELETE FROM hotdeal_product WHERE prod_id=?", array($prdtList->ProdInc)); 
+						$result = DB::connection('mysql')->table('product')->insertGetId(
 							array(
-								'mall_id' => $data2['MallID'],
-								'mall_kind' => $data2['MallKind'],
-								'prod_id' => $data2['ProdInc'],
-								'cate_small' => $data2['Ccode3'],
-								'brand' => $data2['Brand'],
+								'mall_id' => $prdtList->MallID,
+								'mall_kind' => $prdtList->MallKind,
+								'prod_id' => $prdtList->ProdInc,
+								'cate_small' => $prdtList->Ccode3,
+								'brand' => $prdtList->Brand,
 								'hit_count' => 0,
 								'bookmark_count' => 0,
-								'name' => $data2['PnameD'],
-								'price' => floor($data2['Lprice'] * 1204.40),
-								'img' => $data2['PimgD']								
+								'name' => $prdtList->PnameD,
+								'price' => floor($prdtList->Lprice * $currency),
+								'img' => $prdtList->PimgD								
 							)
 						);
-						$i++;
+						$cnt_prdtIns++;
+						$this->printMsg(" $prdtList->MallID 의 $prdtList->PnameD 가 product 테이블에 생성되었습니다.");
 					}
 					else
 					{
-						$result = DB::update("UPDATE product SET brand=?, name=?, price=?, img=? WHERE prod_id=? and name=''", 
-							array($data2['Brand'], $data2['PnameD'], $this->makeMoney($data2['Lprice']), $data2['PimgD'], $data2['ProdInc'])); 
-						$j++;
+						$result = DB::update("UPDATE product SET brand=?, name=?, price=?, img=? WHERE prod_id=?", 
+							array($prdtList->Brand, $prdtList->PnameD, floor($prdtList->Lprice * $currency), $prdtList->PimgD, $prdtList->ProdInc)); 
+						$cnt_prdtUpd++;
+						$this->printMsg(" $prdtList->MallID 의 $prdtList->PnameD 가 product 테이블에 업데이트 되었습니다.");
+					}	
+				}
+				// 할인이 있을 시 hotdeal_product 테이블에 insert
+				else
+				{
+					// 위와 동일
+					$cnt = DB::connection('mysql')->select("SELECT count(*) as cnt FROM hotdeal_product WHERE prod_id = ?", array($prdtList->ProdInc));
+					$saleP = floor((($prdtList->Lprice - $prdtList->Sprice) / $prdtList->Lprice)*100);
+					if ($cnt[0]->cnt == 0)
+					{
+ 						$result = DB::connection('mysql')->delete("DELETE FROM product WHERE prod_id=?", array($prdtList->ProdInc));
+						$result = DB::connection('mysql')->table('hotdeal_product')->insertGetId(
+							array(
+								'mall_id' => $prdtList->MallID,
+								'mall_kind' => $prdtList->MallKind,
+								'prod_id' => $prdtList->ProdInc,
+								'cate_small' => $prdtList->Ccode3,
+								'brand' => $prdtList->Brand,
+								'hit_count' => 0,
+								'bookmark_count' => 0,
+								'name' => $prdtList->PnameD,
+								'priceO' => floor($prdtList->Lprice * $currency),
+								'priceS' => floor($prdtList->Sprice * $currency),
+								'saleP' => $saleP,
+								'img' => $prdtList->PimgD								
+							)
+						);
+						$cnt_hotIns++;
+						$this->printMsg(" $prdtList->MallID 의 $prdtList->PnameD 가 hotdeal_product 테이블에 생성되었습니다.");
+					}	
+					else
+					{
+						$result = DB::update("UPDATE hotdeal_product SET brand=?, name=?, priceO=?, priceS=?, saleP=?, img=? WHERE prod_id=?", 
+								array($prdtList->Brand, $prdtList->PnameD, floor($prdtList->Lprice * $currency), floor($prdtList->Sprice * $currency), $saleP, $prdtList->PimgD, $prdtList->ProdInc)); 
+						$cnt_hotUpd++;
+						$this->printMsg(" $prdtList->MallID 의 $prdtList->PnameD 가 hotdeal_product 테이블에 업데이트 되었습니다.");
 					}
 				}
 			}
-			echo "$i products inserted and $j products updated.";
 		}
-		else
-		{
-			echo "Connection could not be established.\n";
-			die (print_r(sqlsrv_errors(), true));
-		}
+		echo "$cnt_prdtIns products inserted and $cnt_prdtUpd products updated in table Product.\n";
+		echo "$cnt_hotIns products inserted and $cnt_hotUpd products updated in table Hotdeal_product.";
 		
-		mssql_close($conn);
 	}
 
-	function makeMoney($num)
+	function printMsg($msg)
 	{
-		$num = floor($num*1204.40)."";
-		$str = "";
-		while (strlen($num) > 3)
-		{
-			$str = substr($num, strlen($num)-3, 3).",".$str;
-			$num = substr($num, 0, strlen($num)-3);
-		}
-		$str = $num.",".substr($str,0,strlen($str)-1);
-			
-		return $str;
+		echo $msg.'<br>';
+		echo str_pad('',256);
+		ob_flush();
+		flush();
 	}
 }

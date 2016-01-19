@@ -24,8 +24,8 @@
  	<ul class="nav nav-tabs nav-justified">
 	  <li role="presentation" ><a href="<?= $adr_ctr ?>Advertise/index">Advertise</a></li>
 	  <li role="presentation" class="active"><a href="#">Notify</a></li>
-	  <li role="presentation"><a href="#">Member</a></li>
-	  <li role="presentation"><a href="#">Etc</a></li>
+	  <li role="presentation"><a href="<?= $adr_ctr ?>Member/member">Member</a></li>
+	  <li role="presentation"><a href="<?= $adr_ctr ?>Product/index">Product update</a></li>
 	</ul>
 	</div>	
 	
@@ -56,8 +56,11 @@
 				</td>
 			</tr>
 		</table>
+	</div>
+	</div>
 		<!-- <hr class="header_hr2"></hr> -->
-		
+	<div class="bgcolor">
+	<div class="notify_wrap">
 		<!-- 댓들내용 -->
 			<div id="reply_wrap">
 			<div id="reply_inner">
@@ -87,6 +90,9 @@
 					</tr>
 					<tr>
 						<td>
+							<div class="f_l bo_color reply_a reply_rm">
+								<a onclick="#">답글달기</a>
+							</div>
 							<?php if ($noList[$i]->nickname == $_SESSION['id']) :?>
 							<div class="f_r bo_color reply_a reply_rm">
 								<a class="reply_show" onclick="noModify($(this),<?=$noList[$i]->idx?>);">수정</a>
@@ -102,8 +108,9 @@
 				</div>
 			</div>
 	</div>
-</div>	
-<hr class="header_hr2"></hr>
+</div>
+
+<hr class="header_hr3"></hr>
 <div class="notify_wrap">
 	<div class="footer_div bo_color2">
 			<span>Copyright ⓒ 2016 Tourplatform Inc. All rights reserved.</span>
