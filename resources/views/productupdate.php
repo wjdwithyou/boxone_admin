@@ -12,8 +12,9 @@
     $("button").click(function(){
         $("#test").load("<?= $adr_ctr ?>Product/insertProd");
     });
+    });
     </script>
-});
+
 </head>
 <body>
 	
