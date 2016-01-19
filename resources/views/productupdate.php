@@ -7,7 +7,7 @@
 		?>
 
 	<link rel="stylesheet" type="text/css" href="mystyle.css">
-
+	
 </head>
 <body>
 	
@@ -29,7 +29,7 @@
 	
 	
 	<div class="center">
-		<a href="<?= $adr_ctr ?>Product/insertProd"><button>update</button></a>
+		<a href="<?= $adr_ctr ?>Product/insertProd" target="_self"><button>update</button></a>
 	</div>
 
 </body>
