@@ -10,14 +10,8 @@
 	<script>
 	$(document).ready(function(){
    	 $("button").click(function(){
-   	 	$("#loading").show();
    	 	$("button").hide();
-        if($("#loading").is(":visible"))
-        $("#test").load("<?= $adr_ctr ?>Product/insertProd",function(){
-        	 $("#loading").hide();
-        	 $("button").show();
-        });
-       
+   	 	$("#loading").show();
     	});
     });
     </script>
@@ -42,14 +36,18 @@
 	</div>
 	
 	<div class="center">
+
 		<div id="test">
-			<button>update</button>
+			<a href="<?= $adr_ctr ?>Product/insertProd" target="product"><button>update</button></a>
 		</div>
 		
 		<div id="loading" hidden>
 			<div class="cmn-spinner__radar"></div>
 			<p>Loading... Please wait</p>
 		</div>
+		<iframe name="product" width="100%" height="800px" scrolling="auto" frameborder="0">
+		
+		</iframe>
 
 	</div>
 	
