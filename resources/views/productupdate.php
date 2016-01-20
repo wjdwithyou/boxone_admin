@@ -11,7 +11,7 @@
 	$(document).ready(function(){
    	 $("button").click(function(){
    	 	$("#loading").show();
-        if(("#loading").is(":visible"))
+        if($("#loading").is(":visible"))
         $("#test").load("<?= $adr_ctr ?>Product/insertProd");
         
     	});
