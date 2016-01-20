@@ -11,8 +11,9 @@
 	$(document).ready(function(){
    	 $("button").click(function(){
    	 	$("#loading").show();
+        if(("#loading").is(":visible"))
         $("#test").load("<?= $adr_ctr ?>Product/insertProd");
-        $("#loading").hide();
+        
     	});
     });
     </script>
@@ -37,13 +38,15 @@
 	</div>
 	
 	<div class="center">
-		<div id="loading" hidden>
-			<div class="cmn-spinner__radar"></div>
-			<p>Loading...</p>
-		</div>
 		<div id="test">
 			<button>update</button>
 		</div>
+		
+		<div id="loading" hidden>
+			<div class="cmn-spinner__radar"></div>
+			<p>Loading... Please wait</p>
+		</div>
+
 	</div>
 	
 </body>

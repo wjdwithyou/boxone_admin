@@ -16,12 +16,26 @@
 	width: 240px;
 	
 }
+button{
+	margin-top: 50px;
+	margin-bottom: 50px;
+    width: 80px;
+    color: black;
+    background-color: #fff;
+    border: 1px solid black;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-radius: 25px !important;
+}
+p{
+	margin-top: 25px;
+}
 
 
 /* ============================================================
   SPINNER - COMMON
 ============================================================ */
-[class*="cmn-spinner"] {
+[class="cmn-spinner__radar"] {
   position: relative;
   margin: 0 auto;
   width: 100px;
