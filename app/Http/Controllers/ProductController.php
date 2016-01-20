@@ -105,7 +105,7 @@ class ProductController extends Controller {
 		}
 		echo "$cnt_prdtIns products inserted and $cnt_prdtUpd products updated in table Product.\n";
 		echo "$cnt_hotIns products inserted and $cnt_hotUpd products updated in table Hotdeal_product.";
-		echo "<script>alert('멍청아');</script>";
+		
 	}
 
 	function printMsg($msg)

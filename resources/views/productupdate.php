@@ -15,7 +15,18 @@
              
        });
     });
-		
+	var z = document.getElementById("product");
+
+	function test() {
+	if(z.readyState == "complete") {
+	alert("ok");
+	$("#loading").hide();
+	}
+	else {
+	setTimeout("test()",300);
+	}
+	}
+	test();	
 		
 	</script>
 
@@ -47,7 +58,7 @@
 		</div>
 		
 		
-		<iframe name="product" width="100%" height="800px" scrolling="auto" frameborder="0">
+		<iframe name="product" id="product" width="100%" height="800px" scrolling="auto" frameborder="0">
 		
 		</iframe>
 
