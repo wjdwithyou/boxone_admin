@@ -28,7 +28,10 @@ button{
     border-radius: 25px !important;
 }
 p{
-	margin-top: 25px;
+	margin-top: 40px;
+}
+#loading{
+	margin-top: 150px;
 }
 
 

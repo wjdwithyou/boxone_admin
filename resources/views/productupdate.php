@@ -15,7 +15,7 @@
         if($("#loading").is(":visible"))
         $("#test").load("<?= $adr_ctr ?>Product/insertProd",function(){
         	 $("#loading").hide();
-        	 $("button").show();        	 
+        	 $("button").show();
         });
        
     	});
