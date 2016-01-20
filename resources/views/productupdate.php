@@ -36,8 +36,8 @@
 	
 	
 	<div id="test" class="center">
-		<a href="<?= $adr_ctr ?>Product/insertProd" target="_self"><button>update</button></a>
+		<button>update</button>
 	</div>
-
+	<frame 
 </body>
 </html>
