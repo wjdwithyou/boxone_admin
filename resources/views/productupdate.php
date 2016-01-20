@@ -9,9 +9,11 @@
 	<link rel="stylesheet" type="text/css" href="mystyle.css">
 	<script>
 	$(document).ready(function(){
-    $("button").click(function(){
+   	 $("button").click(function(){
+   	 	$("#loading").show();
         $("#test").load("<?= $adr_ctr ?>Product/insertProd");
-    });
+        $("#loading").hide();
+    	});
     });
     </script>
 
@@ -34,10 +36,15 @@
 	</ul>
 	</div>
 	
-	
-	<div id="test" class="center">
-		<button>update</button>
+	<div class="center">
+		<div id="loading" hidden>
+			<div class="cmn-spinner__radar"></div>
+			<p>Loading...</p>
+		</div>
+		<div id="test">
+			<button>update</button>
+		</div>
 	</div>
-	<frame 
+	
 </body>
 </html>
