@@ -7,14 +7,7 @@
 		?>
 
 	<link rel="stylesheet" type="text/css" href="mystyle.css">
-	<script>
-	$(document).ready(function(){
-   	 $("button").click(function(){
-   	 	$("button").hide();
-   	 	$("#loading").show();
-    	});
-    });
-    </script>
+
 
 </head>
 <body>
@@ -41,10 +34,6 @@
 			<a href="<?= $adr_ctr ?>Product/insertProd" target="product"><button>update</button></a>
 		</div>
 		
-		<div id="loading" hidden>
-			<div class="cmn-spinner__radar"></div>
-			<p>Loading... Please wait</p>
-		</div>
 		<iframe name="product" width="100%" height="800px" scrolling="auto" frameborder="0">
 		
 		</iframe>
