@@ -11,9 +11,13 @@
 	$(document).ready(function(){
    	 $("button").click(function(){
    	 	$("#loading").show();
+   	 	$("button").hide();
         if($("#loading").is(":visible"))
-        $("#test").load("<?= $adr_ctr ?>Product/insertProd");
-        
+        $("#test").load("<?= $adr_ctr ?>Product/insertProd",function(){
+        	 $("#loading").hide();
+        	 $("button").show();        	 
+        });
+       
     	});
     });
     </script>
