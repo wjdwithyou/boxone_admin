@@ -23,6 +23,7 @@
 	<div class="menu_nav center">
  	<ul class="nav nav-tabs nav-justified">
 	  <li role="presentation" ><a href="<?= $adr_ctr ?>Advertise/index">Advertise</a></li>
+	  <li role="presentation"><a href="<?= $adr_ctr ?>Mapping/mapping">Product mapping</a></li>
 	  <li role="presentation" ><a href="<?= $adr_ctr ?>Notify/test">Notify</a></li>
 	  <li role="presentation" class="active"><a href="#">Member</a></li>
 	  <li role="presentation"><a href="<?= $adr_ctr ?>Product/product">Product update</a></li>

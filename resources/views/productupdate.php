@@ -8,6 +8,8 @@
 
 	<link rel="stylesheet" type="text/css" href="mystyle.css">
 	<script>
+	
+	/*
 	$(document).ready(function(){
        $("button").click(function(){
           $("#loading").show();
@@ -15,19 +17,16 @@
              
        });
     });
-	var z = document.getElementById("product");
-
-	function test() {
-	if(z.readyState == "complete") {
+    */
+    </script>
+    
+	<script for="product" event="onreadystatechange">
+	/*
+	if(pageInit && (this.readyState=="complete"))
+	{
 	alert("ok");
-	$("#loading").hide();
 	}
-	else {
-	setTimeout("test()",300);
-	}
-	}
-	test();	
-		
+		*/
 	</script>
 
 </head>
@@ -43,6 +42,7 @@
 	<div class="menu_nav center">
  	<ul class="nav nav-tabs nav-justified">
 	  <li role="presentation" ><a href="<?= $adr_ctr ?>Advertise/index">Advertise</a></li>
+	  <li role="presentation"><a href="<?= $adr_ctr ?>Mapping/mapping">Product mapping</a></li>
 	  <li role="presentation" ><a href="<?= $adr_ctr ?>Notify/test">Notify</a></li>
 	  <li role="presentation"><a href="<?= $adr_ctr ?>Member/member">Member</a></li>
 	  <li role="presentation" class="active"><a href="#">Product update</a></li>
