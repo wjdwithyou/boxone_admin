@@ -12,7 +12,7 @@ class MappingModel{
 		return array('code' => 1, 'msg' => 'success', 'data' => $result);
 	}
 	function getAllbrand(){
-		$result = DB::select('select brand from product union select brand from hotdeal_product');
+		$result = DB::select('select brand from product union select brand from hotdeal_product order by brand ASC');
 		return array('code' => 1, 'msg' => 'success', 'data' => $result);
 	}
 	function getBrand($category){
@@ -24,8 +24,8 @@ class MappingModel{
 	}
 
 	function search($category, $name, $brand){
-		$db = 'select prod_id, cate_small, name, brand, img, binding, isbest, price from product';
-		$db_h = 'select prod_id, cate_small, name, brand, img, binding, isbest, priceO as price from hotdeal_product';
+		$db = 'select "p" as item_type, idx, cate_small, name, brand, img, binding, isbest, price from product';
+		$db_h = 'select "h" as item_type, idx, cate_small, name, brand, img, binding, isbest, priceO as price from hotdeal_product';
 		$db_name = "name like '%$name%'";
 		$db_brand = "brand = '$brand'";
 		$db_cate = "cate_small = '$category'";
@@ -81,12 +81,12 @@ class MappingModel{
 	}
 
 	function getBinding($b_idx){
-		$db = 'select prod_id, cate_small, name, brand, img, binding, price from product';
+		$db = 'select "p" as item_type, idx, name, brand, img, binding, isbest, price from product';
+		$db_h = 'select "h" as item_type, idx, name, brand, img, binding, isbest, priceO as price from hotdeal_product';
 		
-		$result = DB::select('select prod_id from mapping_product where idx='.$b_idx);
-		print_r ("결과아");
-		print_r ($result);		
-		//print_r ($asdfasdf);
+		$result = DB::select($db.' where binding=? union '.$db_h.' where binding=? order by price ASC', array($b_idx, $b_idx));
+	
+		
 		if($result==true)
 			return array('code'=>1, 'msg' => 'detail success', 'data' => $result);
 		else
@@ -95,6 +95,7 @@ class MappingModel{
 
 	
 	function changeCategory($category){
+		
 		if($category=='0'){
 			$result = DB::select("select brand from product union select brand from hotdeal_product order by brand ASC");
 		}
@@ -109,35 +110,77 @@ class MappingModel{
 			return array('code' => 0, 'msg' => 'category failure');
 
 	}
-	function binding($cnt, $list, $min_idx, $f_idx, $f_pro, $min_change){
+	function binding($cnt, $list, $min_idx, $f_idx, $f_pro, $min_change, $min_type){
 		$idx = DB::select('select max(idx) as m from mapping_product');
 		$idx = ($idx[0]->m)+1;
 		$list = array_filter($list);
+		
+		//print_r ($list);
+		
 		if($f_idx==0){
 			for($i=0 ; $i<count($list) ; $i++){
-				$result = DB::insert('insert into mapping_product (idx, prod_id) values (?, ?)',array($idx, $list[$i]));
-				$result2= DB::update('update product set binding=? where prod_id=?',array($idx, $list[$i]));
-				$result3= DB::update('update hotdeal_product set binding=? where prod_id=?',array($idx, $list[$i]));
-				//최저가면 1넣기
-				$min=DB::update('update product set isbest=1 where prod_id=?',array($min_idx));
-				$min=DB::update('update hotdeal_product set isbest=1 where prod_id=?',array($min_idx));
-			}
+				$result = DB::insert('insert into mapping_product (idx, prod_idx, item_type) values (?, ?, ?)',array($idx, $list[$i][0], $list[$i][1]));
+				if($list[$i][1]=='p') $result2= DB::update('update product set binding=? where idx=?',array($idx, $list[$i][0]));
+				else $result3= DB::update('update hotdeal_product set binding=? where idx=?',array($idx, $list[$i][0]));
+			}//최저가면 1넣기
+			if($min_type=='p') $min=DB::update('update product set isbest=1 where idx=?',array($min_idx));
+			else $min=DB::update('update hotdeal_product set isbest=1 where idx=?',array($min_idx));
 		}
 		else{
 			for($i=1 ; $i<=count($list) ; $i++){		
-				$result = DB::insert('insert into mapping_product (idx, prod_id) values (?, ?)',array($f_idx, $list[$i]));
-				$result2= DB::update('update product set binding=? where prod_id=?',array($f_idx, $list[$i]));
-				$result3= DB::update('update hotdeal_product set binding=? where prod_id=?',array($f_idx, $list[$i]));
+				$result = DB::insert('insert into mapping_product (idx, prod_idx, item_type) values (?, ?, ?)',array($f_idx, $list[$i][0], $list[$i][1]));
+				if($list[$i][1]=='p') $result2= DB::update('update product set binding=? where idx=?',array($f_idx, $list[$i][0]));
+				else $result3= DB::update('update hotdeal_product set binding=? where idx=?',array($f_idx, $list[$i][0]));
+				
 				if($min_change==1){ //묶은상품+최저가가 변하면
-					$min=DB::update('update product set isbest=1 where prod_id=?',array($min_idx));
-					$min=DB::update('update hotdeal_product set isbest=1 where prod_id=?',array($min_idx));
-					$min=DB::update('update product set isbest=0 where prod_id=?',array($f_pro));
-					$min=DB::update('update hotdeal_product set isbest=0 where prod_id=?',array($f_pro));
-	
+					if($list[$i][1]=='p'){
+						$min=DB::update('update product set isbest=1 where idx=?',array($min_idx));
+						$min=DB::update('update product set isbest=0 where idx=?',array($f_pro));	
+					}
+					else{
+						$min=DB::update('update hotdeal_product set isbest=1 where idx=?',array($min_idx));
+						$min=DB::update('update hotdeal_product set isbest=0 where idx=?',array($f_pro));
+					}
 				}	
 			}
 		}
 		return array('code' => 1, 'msg' => 'binding success', 'data' => $result);
 	}
+	
+	function delBinding($list, $min_change, $min_idx, $min_type, $ori_min_idx, $ori_min_type){
+			
+		if($min_change==1){ //대표상품이 삭제되었을 경우
+			if($ori_min_type=='p'){
+				$min=DB::update('update product set isbest=0 and binding=0 where idx=?',array($ori_min_idx));
+				if($min_type=='p'){
+					$min=DB::update('update product set isbest=1 where idx=?',array($min_idx));
+				}
+				else{
+					$min=DB::update('update hotdeal_product set isbest=1 where idx=?',array($min_idx));
+				}
+			}
+			else{
+				$min=DB::update('update hotdeal_product set isbest=0 and binding=0 where idx=?',array($ori_min_idxidx));
+				if($min_type=='p'){
+					$min=DB::update('update product set isbest=1 where idx=?',array($min_idx));
+				}
+				else{
+					$min=DB::update('update hotdeal_product set isbest=1 where idx=?',array($min_idx));
+				}
+			}				
+		}
+
+		for($i=0 ; $i<count($list) ; $i++){
+			$result=DB::delete('delete from mapping_product where prod_idx=? and item_type=?',array($list[$i][0],$list[$i][1]));
+			if($list[$i][1]=='p'){
+				$result=DB::update('update product set binding=0 where idx=?',array($list[$i][0]));
+			}
+			else{
+				$result=DB::update('update hotdeal_product set binding=0 where idx=?',array($list[$i][0]));
+			}
+		}
+		return array('code' => 1, 'msg' => 'delete success', 'data' => $result);
+	}
+
 	
 }

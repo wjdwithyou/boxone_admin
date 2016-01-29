@@ -70,9 +70,10 @@ class MappingController extends Controller {
 		$f_idx = Request::input('f_idx');//대표상품의 binding 0이면 단일상문만묶임
 		$f_pro = Request::input('f_pro');//대표상품의 pro_id
 		$min_change = Request::input('min_change');//1이면 대표상품이 바뀜
+		$min_type = Request::input('min_type');//최저가상품의 item_type
 		
 		$bindModel = new MappingModel();
-		$bindList = $bindModel->binding($cnt, $list, $min_idx, $f_idx, $f_pro, $min_change);
+		$bindList = $bindModel->binding($cnt, $list, $min_idx, $f_idx, $f_pro, $min_change, $min_type);
 				
 		//상품 업데이트후 검색
 		
@@ -102,5 +103,39 @@ class MappingController extends Controller {
 		
 	}
 	
+	public function bindingDel(){
+		$page = 'binding_detail';
+		$list = Request::input('list');
+		$min_change = Request::input('min_change');
+		$min_idx = Request::input('min_idx');
+		$min_type = Request::input('min_type');
+		$ori_min_idx = Request::input('ori_min_idx');
+		$ori_min_type = Request::input('ori_min_type');	
+		$b_idx=Request::input('b_idx');	
+		
+		$delModel = new MappingModel();
+		$dellist = $delModel->delBinding($list, $min_change, $min_idx, $min_type, $ori_min_idx, $ori_min_type);
+		
+		//상품 업데이트 후 검색
+		/*
+		$category = Request::input('category');
+		$name = Request::input('name');
+		$brand = Request::input('brand');
+		
+		$proModel = new MappingModel();
+		$proList = $proModel->search($category, $name, $brand);
+
+		*/
+		$detailModel = new MappingModel();
+		$b_idx = Request::input('b_idx');
+		$page = 'binding_detail';
+		$detail = $detailModel->getBinding($b_idx);
+
+		
+		return view($page, array('page'=>$page, 'detail'=>$detail['data']));
+		
+		
+		
+	}
 
 }
