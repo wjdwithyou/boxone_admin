@@ -88,9 +88,11 @@ function bind($count){
 				}
 				f_idx=$("#b_idx_"+i).text();
 				f_pro=$("#idx_pro_"+i).text();
+				
 			}
 			else{
 				list[cnt]= new Array($("#idx_pro_"+i).text(),$("#item_type_"+i).text());
+				cnt++;
 			}
 			//가격비교를한다..			
 			if(min_price>parseInt($("#price_"+i).text())){
@@ -98,7 +100,6 @@ function bind($count){
 				min_idx=$("#idx_pro_"+i).text();
 				min_type = $("#item_type_"+i).text(); //최저가의 item_type
 			}
-			cnt++;
 		}
 	}
 	if( g_cnt==1 && min_idx!=f_pro ){
@@ -107,7 +108,7 @@ function bind($count){
 	}
 	alert(list+"총 "+cnt+"개의 상품이 묶이길바랍니다. 최저가 상품은 "+min_idx+"번째상품 "+min_price+"원입니다.");
 	
-	
+	cnt=cnt-1;
 	$.ajax({
 		url: adr_ctr + "Mapping/binding",
 		type: 'post',
@@ -149,9 +150,10 @@ function proDel($count){
 	var ori_min_type = $("#item_type_0").text(); 
 	
 	if($(".img_0").attr('src') == 'http://localhost:8000/img/heart_on.png'){
-		list[cnt]= new Array($("#idx_pro_"+i).text(),$("#item_type_"+i).text());
+		list[cnt]= new Array($("#idx_pro_0").text(),$("#item_type_0").text());
 		cnt++;
 		min_change=1;
+		alert("대표상품 삭제");
 		//최저가가 삭제됨
 		for(var i=1 ; i<$count ; i++){
 			if($(".img_"+i).attr('src') == 'http://localhost:8000/img/heart_on.png'){
@@ -176,6 +178,8 @@ function proDel($count){
 		}
 	}
 	var b_idx =$("#b_idx_0").text();
+	alert("선택상품");
+	alert(list);
 	$.ajax({
 		url: adr_ctr + "Mapping/bindingDel",
 		type: 'post',
@@ -195,6 +199,7 @@ function proDel($count){
 		success: function(result){
 			alert(JSON.stringify(result));
 			$("#detail_result").html(result);
+			btn_toggle();
 		},
 		error: function(request, status, error){
 			console.log(request.responseText);
@@ -234,4 +239,14 @@ function test($i){
 	            ? 'http://localhost:8000/img/heart_on.png'
 	            : 'http://localhost:8000/img/heart.png';
 	         $(".img_"+$i).attr('src', src);
+}
+
+function btn_toggle(){
+	$("#update_btn").show();
+	$("#cancel_btn").hide();
+}
+function update_btn(){
+	$('#exampleModal').on('hidden.bs.modal', function (e) {
+	  proSearch();
+	});
 }

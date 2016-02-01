@@ -7,7 +7,7 @@ include_once dirname(__FILE__)."/../method/baseFunction.php";
 
 class MappingModel{
 	function getSmallCategory(){
-		$result = DB::select('select idx, name, medium_idx from category_small');
+		$result = DB::select('select idx, name, m_idx from category');
 		
 		return array('code' => 1, 'msg' => 'success', 'data' => $result);
 	}
@@ -90,7 +90,7 @@ class MappingModel{
 		if($result==true)
 			return array('code'=>1, 'msg' => 'detail success', 'data' => $result);
 		else
-			return array('code'=>0, 'msg' => 'detail fail');
+			return array('code'=>0, 'msg' => 'detail fail', 'data' => array() );
 	}
 
 	
@@ -115,9 +115,10 @@ class MappingModel{
 		$idx = ($idx[0]->m)+1;
 		$list = array_filter($list);
 		
-		//print_r ($list);
+		print_r ("오류를찾자");
+		print_r ($list);
 		
-		if($f_idx==0){
+		if($f_idx==0){ //묶은상품없이 단일상품만..
 			for($i=0 ; $i<count($list) ; $i++){
 				$result = DB::insert('insert into mapping_product (idx, prod_idx, item_type) values (?, ?, ?)',array($idx, $list[$i][0], $list[$i][1]));
 				if($list[$i][1]=='p') $result2= DB::update('update product set binding=? where idx=?',array($idx, $list[$i][0]));
@@ -127,7 +128,11 @@ class MappingModel{
 			else $min=DB::update('update hotdeal_product set isbest=1 where idx=?',array($min_idx));
 		}
 		else{
-			for($i=1 ; $i<=count($list) ; $i++){		
+			for($i=0 ; $i<count($list) ; $i++){
+				if(!($list[$i])){
+					print_r ("빈값");
+					print_r ($i);
+				}		
 				$result = DB::insert('insert into mapping_product (idx, prod_idx, item_type) values (?, ?, ?)',array($f_idx, $list[$i][0], $list[$i][1]));
 				if($list[$i][1]=='p') $result2= DB::update('update product set binding=? where idx=?',array($f_idx, $list[$i][0]));
 				else $result3= DB::update('update hotdeal_product set binding=? where idx=?',array($f_idx, $list[$i][0]));
@@ -148,10 +153,15 @@ class MappingModel{
 	}
 	
 	function delBinding($list, $min_change, $min_idx, $min_type, $ori_min_idx, $ori_min_type){
-			
+		print_r ("min change값은???");
+		print_r ($min_change);
+		$list = array_filter($list);
+		print_r ("list값??");
+		print_r ($list);
 		if($min_change==1){ //대표상품이 삭제되었을 경우
 			if($ori_min_type=='p'){
-				$min=DB::update('update product set isbest=0 and binding=0 where idx=?',array($ori_min_idx));
+				$min=DB::update('update product set isbest=0, binding=0 where idx=?',array($ori_min_idx));
+				print_r ("업데이틍으으으");
 				if($min_type=='p'){
 					$min=DB::update('update product set isbest=1 where idx=?',array($min_idx));
 				}
@@ -160,7 +170,7 @@ class MappingModel{
 				}
 			}
 			else{
-				$min=DB::update('update hotdeal_product set isbest=0 and binding=0 where idx=?',array($ori_min_idxidx));
+				$min=DB::update('update hotdeal_product set isbest=0, binding=0 where idx=?',array($ori_min_idxidx));
 				if($min_type=='p'){
 					$min=DB::update('update product set isbest=1 where idx=?',array($min_idx));
 				}
@@ -171,6 +181,8 @@ class MappingModel{
 		}
 
 		for($i=0 ; $i<count($list) ; $i++){
+			print_r ("지워저라아아");
+			print_r ($list[$i][0]+"번쨰의"+$list[$i][1]+"상품");
 			$result=DB::delete('delete from mapping_product where prod_idx=? and item_type=?',array($list[$i][0],$list[$i][1]));
 			if($list[$i][1]=='p'){
 				$result=DB::update('update product set binding=0 where idx=?',array($list[$i][0]));

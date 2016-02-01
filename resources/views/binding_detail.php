@@ -28,6 +28,7 @@
 </div>
 </div>
 <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+        <span id="cancel_btn"><button type="button" class="btn btn-default" data-dismiss="modal">취소</button></span>
+        <span id="update_btn" hidden><button type="button" class="btn btn-default" data-dismiss="modal" onclick="update_btn();">취소2</button></span>
         <button type="button" onclick ="proDel(<?=count($detail)?>)" class="btn btn-primary">삭제</button>
 </div>
