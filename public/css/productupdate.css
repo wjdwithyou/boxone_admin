@@ -16,6 +16,9 @@
 	width: 240px;
 	
 }
+.f_l{
+	float: left;
+}
 button{
 	margin-top: 50px;
 	margin-bottom: 50px;

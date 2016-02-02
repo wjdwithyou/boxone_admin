@@ -53,13 +53,16 @@
 	
 		<div id="test">
 			<a href="<?= $adr_ctr ?>Product/insertProd" target="product"><button>Product update</button></a>
-			<a href="<?= $adr_ctr ?>Product/insertProd" target="product"><button>Review update</button></a>
+			<a href="<?= $adr_ctr ?>Google/crawlReviewAll" target="review"><button>Review hotdeal</button></a>
+			
 			<div id="loading" hidden class="cmn-spinner__radar"></div>
 			
 		</div>
 		
 		
-		<iframe name="product" id="product" width="100%" height="800px" scrolling="auto" frameborder="0">
+		<iframe name="product" id="product" width="100%" height="400px" scrolling="auto" frameborder="1">
+			</iframe>
+		<iframe name="review" id="review" width="100%" height="400px" scrolling="auto" frameborder="1">
 		
 		</iframe>
 

@@ -76,9 +76,15 @@ class GoogleController extends Controller{
 		//return view($page, array('page' => $page/*additional data*/));
 	}
 	
+	public function crawlReviewAll(){
+		
+		$this->crawlReview('hotdeal');
+		$this->crawlReview('product');
+	}
+	
 	// 160202 J.Style
 	// No comment.
-	public function crawlReview(){
+	public function crawlReview($param){
 		ini_set('max_execution_time', -1);
 		
 		$param = Request::input('param');	// hotdeal, product
@@ -88,7 +94,7 @@ class GoogleController extends Controller{
 		
 		$List = ($param == 'hotdeal')? $pdModel->getHotdealAll(): $pdModel->getProductAll();	// idx begins 1
 		
-		$fp = fopen($param."_log.txt", "a");
+		//$fp = fopen($param."_log.txt", "a");
 		
 		for ($i = 0; $i < count($List['data']); ++$i){
 			$remain = $List['data'][$i]->name;
@@ -217,13 +223,22 @@ class GoogleController extends Controller{
 			
 			$txt .= "\r\n";
 			
-			fwrite($fp, $txt);
+			$this->printMsg($txt);
+			//fwrite($fp, $txt);
 		}
 		
-		fclose($fp);
+		//fclose($fp);
+		echo ("끗");
 		
 		$page = 'google_result';
 		return view($page, array('page' => $page, 'param' => $param, 'cnt' => count($List['data'])));
+	}
+
+	function printMsg($msg){
+		echo $msg.'<br>';
+		echo str_pad('',256);
+		ob_flush();
+		flush();
 	}
 }
 

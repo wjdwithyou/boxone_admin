@@ -86,5 +86,5 @@ function attackGoogle(){
 function collectReview(param){
 	var adr_ctr = $("#adr_ctr").val();
 	
-	location.href = adr_ctr + "Google/crawlReview?param=" + param;
+	location.href = adr_ctr + "Google/crawlReview?param=" + 'product';
 }
