@@ -28,7 +28,7 @@
 	  <li role="presentation" class="active"><a href="#">Product mapping</a></li>
 	  <li role="presentation" ><a href="<?= $adr_ctr ?>Notify/test">Notify</a></li>
 	  <li role="presentation"><a href="<?= $adr_ctr ?>Member/member">Member</a></li>
-	  <li role="presentation"><a href="<?= $adr_ctr ?>Product/product">Product update</a></li>
+	  <li role="presentation"><a href="<?= $adr_ctr ?>Product/product">Update</a></li>
 	</ul>
 	</div>
 

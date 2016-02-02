@@ -49,7 +49,7 @@ $("#chroom").append
   </div>
 </div>
 <!--binding products table-->
-<div class="type_album">
+<div id="binding_product" class="type_album">
 	<div class="row">
 		<?php for($i=0 ; $i < count($proList) ; $i++) :?>
 		<?php if($proList[$i]->binding!=0 && $proList[$i]->isbest==1) :?>   

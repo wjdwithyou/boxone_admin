@@ -22,8 +22,12 @@
 	vertical-align: middle;
 }
 tr,td{
-	padding: 5px;
+	padding: 6px;
 }
 label{
 	margin-bottom: 0px !important;
+}
+div.bind{
+	border: 1px solid yellow !important; 
+
 }

@@ -19,7 +19,8 @@
 button{
 	margin-top: 50px;
 	margin-bottom: 50px;
-    width: 80px;
+	margin-left: 10px;
+	width: 130px;
     color: black;
     background-color: #fff;
     border: 1px solid black;
@@ -27,6 +28,12 @@ button{
     padding-bottom: 7px;
     border-radius: 25px !important;
 }
+button:hover{
+			    color: #fff;
+			    background-color: #E1E1E1;
+			    border-color: #E1E1E1;
+}
+			
 p{
 	margin-top: 30px;
 }

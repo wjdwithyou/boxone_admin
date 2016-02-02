@@ -4,7 +4,7 @@
 	<div class="row">
 	<?php for($i=0 ; $i < count($detail) ; $i++) :?>
 		<div class="col-sm-6 col-md-3">
-			<div class="thumbnail">
+			<div class="thumbnail bind">
 			  	<div class="check">
 					<img onclick="test(<?=$i?>);" class="check_img img_<?=$i?>" style="cursor:pointer" src="http://localhost:8000/img/heart.png">
 				</div>

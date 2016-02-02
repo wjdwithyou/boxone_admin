@@ -159,6 +159,7 @@ function proDel($count){
 			if($(".img_"+i).attr('src') == 'http://localhost:8000/img/heart_on.png'){
 				//체크된것들은 리스트에 담는다
 				list[cnt]= new Array($("#idx_pro_"+i).text(),$("#item_type_"+i).text());
+				cnt++;
 			}
 			else{ //체크안된것 중 가격비교를함
 				if(min_price>parseInt($("#price_"+i).text())){

@@ -45,14 +45,15 @@
 	  <li role="presentation"><a href="<?= $adr_ctr ?>Mapping/mapping">Product mapping</a></li>
 	  <li role="presentation" ><a href="<?= $adr_ctr ?>Notify/test">Notify</a></li>
 	  <li role="presentation"><a href="<?= $adr_ctr ?>Member/member">Member</a></li>
-	  <li role="presentation" class="active"><a href="#">Product update</a></li>
+	  <li role="presentation" class="active"><a href="#">Update</a></li>
 	</ul>
 	</div>
 	
 	<div class="center">
 	
 		<div id="test">
-			<a href="<?= $adr_ctr ?>Product/insertProd" target="product"><button>update</button></a>
+			<a href="<?= $adr_ctr ?>Product/insertProd" target="product"><button>Product update</button></a>
+			<a href="<?= $adr_ctr ?>Product/insertProd" target="product"><button>Review update</button></a>
 			<div id="loading" hidden class="cmn-spinner__radar"></div>
 			
 		</div>
