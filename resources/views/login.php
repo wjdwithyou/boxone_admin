@@ -192,8 +192,8 @@
 			particle_arr[0].x = window.event.clientX;
 			particle_arr[0].y = window.event.clientY;
 
-			console.log("x:" + particle_arr[0].x);
-			console.log("y:" + particle_arr[0].y);
+			//console.log("x:" + particle_arr[0].x);
+			//console.log("y:" + particle_arr[0].y);
 		}
 	</script>
 
