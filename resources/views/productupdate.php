@@ -59,12 +59,17 @@
 			
 		</div>
 		
-		
+		<div class="hori">
+		<div class="pro c_f_l">
 		<iframe name="product" id="product" width="100%" height="400px" scrolling="auto" frameborder="1">
 			</iframe>
+			</div>
+		<div class="rev c_f_l">
 		<iframe name="review" id="review" width="100%" height="400px" scrolling="auto" frameborder="1">
 		
 		</iframe>
+		</div>
+		</div>
 
 	</div>
 

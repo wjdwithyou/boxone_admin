@@ -16,8 +16,15 @@
 	width: 240px;
 	
 }
-.f_l{
+.c_f_l{
 	float: left;
+	width: 50%;
+	margin-bottom: 50px;
+}
+.hori:after{
+	content:"";
+	display: block;
+	clear: both;
 }
 button{
 	margin-top: 50px;
